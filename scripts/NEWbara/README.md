@@ -1,22 +1,8 @@
-# 🐧 NEWbara
+# 🐧 $!NEWbara
 
-```txt
- ___________.__             ________         .__  .__                 __   
- \__    ___/|  |__   ____   \_____  \   ____ |  | |__| ____   _______/  |_ 
-   |    |   |  |  \_/ __ \   /   |   \ /    \|  | |  |/ __ \ /  ___/\   __\
-   |    |   |   Y  \  ___/  /    |    \   |  \  |_|  \  ___/ \___ \  |  |  
-   |____|   |___|  /\___  > \_______  /___|  /____/__|\___  >____  > |__|  
-                 \/     \/          \/     \/             \/     \/        
- /\        _____          __    __                   __  .__             /\
- \ \      /     \ _____ _/  |__/  |______    _______/  |_|__| ____      / /
-  \ \    /  \ /  \\__  \\   __\   __\__  \  /  ___/\   __\  |/ ___\    / / 
-   \ \  /    Y    \/ __ \|  |  |  |  / __ \_\___ \  |  | |  \  \___   / /  
-    \ \ \____|__  (____  /__|  |__| (____  /____  > |__| |__|\___  > / /   
-     \/         \/     \/                \/     \/               \/  \/    
-```
-
+![banner](assets/banner.png)
 ![License](https://img.shields.io/badge/License-GPL--3.0-bd93f9?style=for-the-badge&logo=gnu&logoColor=white&labelColor=6272a4)
-[![Live Site](https://img.shields.io/badge/Toolkit-Site-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4)](https://theonliestmattastic.github.io/my-bash-toolkit/)
+[![Live Site](https://img.shields.io/badge/Toolkit-Site-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4)](https://theonliestmattastic.github.io/BASHparaphernalia/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4)](https://theonliestmattastic.github.io/)
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4)](https://github.com/theonliestmattastic)
 
@@ -45,8 +31,8 @@ This repository contains `NEWbara.sh`, a Bash script designed to bootstrap a fre
 Clone the repository:
 
 ```sh
-git clone https://github.com/TheOnliestMattastic/My-Bash-Toolkit.git
-cd My-Bash-Toolkit/scripts/NEWbara
+git clone https://github.com/TheOnliestMattastic/BASHparaphernalia.git
+cd BASHparaphernalia/scripts/NEWbara
 ```
 
 Make the script executable and run:

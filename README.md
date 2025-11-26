@@ -1,9 +1,9 @@
 # $!BASHparaphernalia
 
 ![banner](assets/banner.png)
-![Last Commit](https://img.shields.io/github/last-commit/TheOnliestMattastic/My-Bash-Toolkit?color=bd93f9&style=for-the-badge&labelColor=6272a4)
-![Repo Size](https://img.shields.io/github/repo-size/TheOnliestMattastic/My-Bash-Toolkit?color=bd93f9&style=for-the-badge&labelColor=6272a4)
-![Code Size](https://img.shields.io/github/languages/code-size/TheOnliestMattastic/My-Bash-Toolkit?color=bd93f9&style=for-the-badge&labelColor=6272a4)
+![Last Commit](https://img.shields.io/github/last-commit/TheOnliestMattastic/BASHparaphernalia?color=bd93f9&style=for-the-badge&labelColor=6272a4)
+![Repo Size](https://img.shields.io/github/repo-size/TheOnliestMattastic/BASHparaphernalia?color=bd93f9&style=for-the-badge&labelColor=6272a4)
+![Code Size](https://img.shields.io/github/languages/code-size/TheOnliestMattastic/BASHparaphernalia?color=bd93f9&style=for-the-badge&labelColor=6272a4)
 ![License](https://img.shields.io/badge/License-GPL--3.0-bd93f9?style=for-the-badge&logo=gnu&logoColor=white&labelColor=6272a4)  
 [![Live Site](https://img.shields.io/badge/Toolkit-Site-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4)](https://theonliestmattastic.github.io/my-bash-toolkit/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4)](https://theonliestmattastic.github.io/)
@@ -13,11 +13,11 @@
 
 - [🔭 Overview](#-overview)
 - [🗺️ Scripts Included](#️-scripts-included)
-  - [🐧 NEWbara.sh](#-newbarash)
-  - [☁️ mountMyCloudDrives.sh](#️-mountmyclouddrivessh)
-  - [🌈 myLoginScript.sh](#-myloginscriptsh)
-  - [🤖 donTYPE.sh](#-dontypesh)
-  - [🔤 mooCASE.sh](#-changecasesh)
+  - [🐧 $!NEWbara.sh](#-newbarash)
+  - [☁️ $!MTrclone.sh](#️-mountmyclouddrivessh)
+  - [🌈 $!LOGme.sh](#-myloginscriptsh)
+  - [🤖 $!DONtype.sh](#-dontypesh)
+  - [🔤 $!MOOcase.sh](#-changecasesh)
 - [🚀 Getting Started](#-getting-started)
 - [🌕 Notes](#-notes)
 - [🛸 License](#-license)
@@ -30,7 +30,7 @@ This repository is a collection of Bash scripts I use to automate and streamline
 
 ## 🗺️ Scripts Included
 
-### 🐧 **NEWbara.sh**
+### 🐧 **$!NEWbara.sh**
 
 [![Bash](https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4)](https://www.gnu.org/software/bash/)
 [![DNF](https://img.shields.io/badge/Package-dnf-bd93f9?logo=fedora&logoColor=white&style=for-the-badge&labelColor=6272a4)](https://docs.fedoraproject.org/en-US/quick-docs/dnf/)
@@ -51,7 +51,7 @@ This repository is a collection of Bash scripts I use to automate and streamline
 
 ---
 
-### ☁️ **mountMyCloudDrives.sh**
+### ☁️ **$!MTrclone.sh**
 
 [![Bash](https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4)](https://www.gnu.org/software/bash/)
 [![Rclone](https://img.shields.io/badge/Cloud-rclone-bd93f9?logo=icloud&logoColor=white&style=for-the-badge&labelColor=6272a4)](https://rclone.org/)
@@ -64,7 +64,7 @@ This repository is a collection of Bash scripts I use to automate and streamline
 
 ---
 
-### 🌈 **myLoginScript.sh**
+### 🌈 **$!LOGme.sh**
 
 [![Bash](https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4)](https://www.gnu.org/software/bash/)
 [![OpenRGB](https://img.shields.io/badge/RGB-OpenRGB-bd93f9?style=for-the-badge&labelColor=6272a4)](https://openrgb.org/)
@@ -84,7 +84,7 @@ This repository is a collection of Bash scripts I use to automate and streamline
 
 ---
 
-### 🤖 **donTYPE.sh**
+### 🤖 **$!DONtype.sh**
 
 [![Bash](https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4)](https://www.gnu.org/software/bash/)
 [![xdotool](https://img.shields.io/badge/Automation-xdotool-bd93f9?style=for-the-badge&labelColor=6272a4)](https://github.com/jordansissel/xdotool)
@@ -106,7 +106,7 @@ This repository is a collection of Bash scripts I use to automate and streamline
 
 ---
 
-### 🌝 **mooCASE.sh**
+### 🌝 **$!MOOcase.sh**
 
 [![Bash](https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4)](https://www.gnu.org/software/bash/)
 
@@ -137,8 +137,8 @@ This repository is a collection of Bash scripts I use to automate and streamline
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/TheOnliestMattastic/My-Bash-Toolkit.git
-   cd My-Bash-Toolkit
+   git clone https://github.com/TheOnliestMattastic/BASHparaphernalia.git
+   cd BASHparaphernalia
    ```
 
 2. **Make scripts executable:**
@@ -149,7 +149,7 @@ This repository is a collection of Bash scripts I use to automate and streamline
 
    # Or for individual scripts
    chmod +x scripts/NEWbara/NEWbara.sh
-   chmod +x scripts/mountMyCloudDrives/mountMyCloudDrives.sh
+   chmod +x scripts/MTrclone/MTrclone.sh
    # ... etc
    ```
 
@@ -163,11 +163,11 @@ This repository is a collection of Bash scripts I use to automate and streamline
 
 Each script includes detailed setup instructions in its header comments. Here are the key requirements:
 
-- **NEWbara.sh:** Requires `dnf`, `flatpak`, `snap`, and `sudo` access
-- **mountMyCloudDrives.sh:** Requires `rclone` configured with cloud remotes and `xcowsay`
-- **myLoginScript.sh:** Requires `openrgb` and `xcowsay`
-- **donTYPE.sh:** Requires `xdotool` for automation
-- **mooCASE.sh:** No external dependencies (uses built-in tools)
+- **$!NEWbara.sh:** Requires `dnf`, `flatpak`, `snap`, and `sudo` access
+- **$!MTrclone.sh:** Requires `rclone` configured with cloud remotes and `xcowsay`
+- **$!LOGme.sh:** Requires `openrgb` and `xcowsay`
+- **$!DONtype.sh:** Requires `xdotool` for automation
+- **$!MOOcase.sh:** No external dependencies (uses built-in tools)
 
 ### Configuration
 
