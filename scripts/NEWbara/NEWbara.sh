@@ -25,7 +25,7 @@
 # How to use this script:
 # 1. (Optional) Edit the package lists below or provide files with -d, -f, -s flags.
 # 2. Make the script executable: chmod +x ./NEWbara.sh
-# 3. Run the script: ./NEWbara.sh [-d dnf_packages.txt] [-f flatpak_packages.txt] [-s snap_packages.txt]
+# 3. Run the script: ./NEWbara.sh [-d dnf_packages.txt] [-f flatpak_packages.txt] 
 # --------------------------------------------------------------------------
 
 # --- Script safety net ---
@@ -35,8 +35,8 @@ trap 'echo "Error occurred at line $LINENO"' ERR
 
 # --- Dependency Check ---
 # Before we start, let's make sure you have all the necessary tools.
-# This loop checks for dnf, flatpak, snap, and sudo.
-for cmd in dnf flatpak snap sudo; do
+# This loop checks for dnf, flatpak, , and sudo.
+for cmd in dnf flatpak sudo; do
    if ! command -v "$cmd" >/dev/null 2>&1; then
       echo "Error: $cmd not found. Please install it."
       exit 1
@@ -46,7 +46,7 @@ done
 # --- Help Functions ---
 # Need a quick reminder of how to use this script? This function is for you.
 short_help() {
-   echo "Usage: $0 [-f flatpak_file.txt] [-s snap_file.txt] [-d dnf_file.txt] [-S] [-n] [-h|--help]"
+   echo "Usage: $0 [-f flatpak_file.txt] [-d dnf_file.txt] [-S] [-n] [-h|--help]"
    echo "Options:"
    echo "  -f FILE     Load Flatpak packages from FILE"
    echo "  -d FILE     Load DNF packages from FILE"
@@ -133,7 +133,7 @@ while getopts "f:s:d:hSn" opt; do
       exit 0
       ;; # Show the quick help
    *)
-      echo "Usage: $0 [-f flatpak_file.txt] [-s snap_file.txt] [-d dnf_file.txt] [-S] [-n] [-h|--help]" >&2
+      echo "Usage: $0 [-f flatpak_file.txt] [-d dnf_file.txt] [-S] [-n] [-h|--help]" >&2
       exit 1
       ;; # If you use an unknown option
    esac
@@ -153,13 +153,12 @@ DNF_PKGS=(
    syncthing
    shfmt
    shellcheck
-   nodejs-bash-language-server nvtop
+   nodejs-bash-language-server 
+   nvtop
    htop
    cbonsai
    piper
    tealdeer
-   clamav
-   clamav-freshclam
    psutils
    toilet
    figlet
@@ -182,7 +181,6 @@ FLAT_PKGS=(
    "org.libretro.RetroArch"
    "eu.betterbird.Betterbird"
    "org.bleachbit.BleachBit"
-   "com.jetpackduba.Gitnuro"
    "org.keepassxc.KeePassXC"
    "com.spotify.Client"
 )
@@ -195,10 +193,6 @@ fi
 # Same for Flatpaks.
 if [ -n "$flatpak_file" ]; then
    mapfile -t FLAT_PKGS <"$flatpak_file"
-fi
-# And for Snaps.
-if [ -n "$snap_file" ]; then
-   mapfile -t SNAP_PKGS <"$snap_file"
 fi
 
 # ------------------------ END OF CONFIGURATION ----------------------------
@@ -269,11 +263,6 @@ done
 moo "Flatpaks installed!"
 
 # --- Snap Package Installation ---
-# First, let's ensure snapd is installed.
-if ! dnf list --installed snapd >/dev/null 2>&1; then
-   sudo dnf --assumeyes --quiet install snapd
-fi
-
 # Finally, the Snap packages.
 for pkg in "${SNAP_PKGS[@]}"; do
    moo "Installing snap package: $pkg..."
