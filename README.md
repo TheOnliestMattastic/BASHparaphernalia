@@ -1,4 +1,4 @@
-# 🧰 My Bash Toolkit
+# $!BASHparaphernalia
 
 ![banner](assets/banner.png)
 ![Last Commit](https://img.shields.io/github/last-commit/TheOnliestMattastic/My-Bash-Toolkit?color=bd93f9&style=for-the-badge&labelColor=6272a4)
