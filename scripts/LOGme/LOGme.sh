@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#
+# =============================================================================
 #    ██████ ▄▄ ▄▄ ▄▄▄▄▄   ▄████▄ ▄▄  ▄▄ ▄▄    ▄▄ ▄▄▄▄▄  ▄▄▄▄ ▄▄▄▄▄▄
 #      ██   ██▄██ ██▄▄    ██  ██ ███▄██ ██    ██ ██▄▄  ███▄▄   ██
 #      ██   ██ ██ ██▄▄▄   ▀████▀ ██ ▀██ ██▄▄▄ ██ ██▄▄▄ ▄▄██▀   ██
@@ -15,16 +15,17 @@
 #    ▄▄██▀  ▄▄ ██████ ▀████▀  ▀███▀  ██   ██ ██▄▄▄   ▀████ ▄▄▄▄▄ ▄▄█▀
 #      ▀
 #                  A script to run when I... well, login
-# --------------------------------------------------------------------------
+# =============================================================================
 # Prerequisites:
 # - OpenRGB installed and configured with a profile named `Home`
 # - xcowsay installed (for the cow greeting)
 #
 # How to use this script:
-# 1. Place this script in your login scripts directory (e.g., ~/.config/autostart-scripts/),
+# 1. Place this script in your login scripts directory
+#    (e.g., ~/.config/autostart-scripts/),
 #    or configure system settings to run this script at login
 # 2. Make the script executable: chmod +x LOGme.sh
-# --------------------------------------------------------------------------
+# =============================================================================
 
 set -euo pipefail
 

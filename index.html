@@ -1,6 +1,6 @@
 <!--
   REMINDERS:
-  - This is the HTML document that displays the Bash Toolkit website
+  - This is the HTML document that displays the BASHparaphernalia website
   - Head section contains metadata, styles, and icons (things browsers need to know)
   - Body section contains the actual visible content
   - Each section is clearly marked with comments for easy navigation
@@ -40,8 +40,11 @@
     <!-- REMINDER: Theme toggle button - switches between light/dark mode -->
     <button id="theme-toggle" aria-label="Toggle theme">🌞</button>
 
-
-    <img alt="BASHparaphernalia banner" src="/assets/banner.png">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.png">
+      <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.png">
+      <img alt="Banner" src="./assets/banner-light.png">
+    </picture>
 
     <!-- REMINDER: Main title and subtitle - tells visitors what this website is about -->
     <h1>$!BASHparaphernalia</h1>

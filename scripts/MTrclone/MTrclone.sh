@@ -1,23 +1,30 @@
 #!/usr/bin/env bash
+# =============================================================================
+#      ██████ ▄▄ ▄▄ ▄▄▄▄▄   ▄████▄ ▄▄  ▄▄ ▄▄    ▄▄ ▄▄▄▄▄  ▄▄▄▄ ▄▄▄▄▄▄
+#        ██   ██▄██ ██▄▄    ██  ██ ███▄██ ██    ██ ██▄▄  ███▄▄   ██
+#        ██   ██ ██ ██▄▄▄   ▀████▀ ██ ▀██ ██▄▄▄ ██ ██▄▄▄ ▄▄██▀   ██
 #
-#    ██████ ▄▄ ▄▄ ▄▄▄▄▄   ▄████▄ ▄▄  ▄▄ ▄▄    ▄▄ ▄▄▄▄▄  ▄▄▄▄ ▄▄▄▄▄▄
-#      ██   ██▄██ ██▄▄    ██  ██ ███▄██ ██    ██ ██▄▄  ███▄▄   ██
-#      ██   ██ ██ ██▄▄▄   ▀████▀ ██ ▀██ ██▄▄▄ ██ ██▄▄▄ ▄▄██▀   ██
+#      ▄   ██▄  ▄██ ▄████▄ ██████ ██████ ▄▄▄   ▄▄▄▄ ▄▄▄▄▄▄ ▄▄  ▄▄▄▄
+#       ▀▄ ██ ▀▀ ██ ██▄▄██   ██     ██  ██▀██ ███▄▄   ██   ██ ██▀▀▀
+#      ▄▀  ██    ██ ██  ██   ██     ██  ██▀██ ▄▄██▀   ██   ██ ▀████
 #
-#    ▄   ██▄  ▄██ ▄████▄ ██████ ██████ ▄▄▄   ▄▄▄▄ ▄▄▄▄▄▄ ▄▄  ▄▄▄▄
-#     ▀▄ ██ ▀▀ ██ ██▄▄██   ██     ██  ██▀██ ███▄▄   ██   ██ ██▀▀▀
-#    ▄▀  ██    ██ ██  ██   ██     ██  ██▀██ ▄▄██▀   ██   ██ ▀████
+#                              presents,
+#        ▄    ▄▄
+#      ▄██▀▀  ██ ██▄  ▄██ ██████ ▄▄▄▄   ▄▄▄▄ ▄▄     ▄▄▄  ▄▄  ▄▄ ▄▄▄▄▄
+#      ▀███▄  ██ ██ ▀▀ ██   ██   ██▄█▄ ██▀▀▀ ██    ██▀██ ███▄██ ██▄▄
+#      ▄▄██▀  ▄▄ ██    ██   ██ ▄ ██ ██ ▀████ ██▄▄▄ ▀███▀ ██ ▀██ ██▄▄▄
+#        ▀
 #
-#                            presents,
-#
-#    ██▄  ▄██ ██████   ▄▄▄▄   ▄▄▄▄ ▄▄     ▄▄▄  ▄▄  ▄▄ ▄▄▄▄▄
-#    ██ ▀▀ ██   ██     ██▄█▄ ██▀▀▀ ██    ██▀██ ███▄██ ██▄▄
-#    ██    ██   ██   ▄ ██ ██ ▀████ ██▄▄▄ ▀███▀ ██ ▀██ ██▄▄▄
-#
+#          ▄    ▄ ▄ ▄           ▄              ▄
+#        █ ▀ █  ▄███▄   ▄     █ ▀ ▄▄   ▄     █ ▀     ▄▀▄ █   █     ▄
+#       █ ▄▄▄ █ ▄▀█▀▄ ▄▀ ▀▄  █    ██ ▄▀ ▀▄  █ ▄▀▀▄  █ ▀ █ ▄   █  ▄▀ ▀▄
+#      █   ▄   █  ▄         █   ▄▄█▀       █  ▀   ▀▀   █ ▀▄▀   █
+#         ▀      ▀
 #          A script to mount my cloud drives via rclone
 # =============================================================================
 # Prerequisites:
-# - RCLONE MUST BE INSTALLED AND CONFIGURED WITH REMOTES NAMED `OneDrive`, `GoogleDrive`, AND `Dropbox`
+# - RCLONE MUST BE INSTALLED AND CONFIGURED WITH REMOTES NAMED `OneDrive`,
+#   `GoogleDrive`, AND `Dropbox`
 # - Local mount directories must be empty or non-existent
 #
 # How to use this script:
@@ -29,7 +36,8 @@
 #   configuring system settings to run this script at login.
 # =============================================================================
 set -eu
-# Reminder: set -eu means exit on any error (e) and undefined variables (u) - helps catch mistakes early!
+# Reminder: set -eu means exit on any error (e) and undefined variables (u).
+# Helps catch mistakes early!
 
 # Check for required commands
 command -v rclone >/dev/null 2>&1 || { echo "Error: rclone is not installed."; exit 1; }
@@ -37,7 +45,8 @@ command -v findmnt >/dev/null 2>&1 || { echo "Error: findmnt is not installed.";
 command -v xcowsay >/dev/null 2>&1 || { echo "Error: xcowsay is not installed."; exit 1; }
 
 # Cleanup function to kill background rclone processes on exit
-# Reminder: Trap on ERR ensures background rclone processes are killed if anything fails - prevents zombie processes!
+# Reminder: Trap on ERR ensures background rclone processes are killed
+# if anything fails - prevents zombie processes!
 cleanup() {
     [ -n "$ONEDRIVE_PID" ] && kill "$ONEDRIVE_PID" 2>/dev/null || true
     [ -n "$GOOGLEDRIVE_PID" ] && kill "$GOOGLEDRIVE_PID" 2>/dev/null || true

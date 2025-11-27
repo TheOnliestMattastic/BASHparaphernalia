@@ -1,6 +1,11 @@
 # 🌝 $!MOOcase
 
-![banner](assets/banner.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.png">
+  <img alt="Banner" src="./assets/banner-light.png">
+</picture>
+
 ![License](https://img.shields.io/badge/License-GPL--3.0-bd93f9?style=for-the-badge&logo=gnu&logoColor=white&labelColor=6272a4)
 [![Live Site](https://img.shields.io/badge/Toolkit-Site-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4)](https://theonliestmattastic.github.io/BASHparaphernalia/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4)](https://theonliestmattastic.github.io/)

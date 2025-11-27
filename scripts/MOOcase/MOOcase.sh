@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# =============================================================================
 #        ▄▄▄▄▄ ▄▄▄▄▄ ▄▄▄▄▄ ▄▄▄▄▄ ▄▄▄▄▄ ▄▄▄▄▄ ▄▄▄▄▄ ▄▄▄▄▄ ▄▄▄▄▄ ▄▄▄▄▄ ▄▄▄▄▄
 #      ▄▄                                                                    ▄▄
 #      ██   ██████ ▄▄ ▄▄ ▄▄▄▄▄   ▄████▄ ▄▄  ▄▄ ▄▄    ▄▄ ▄▄▄▄▄  ▄▄▄▄ ▄▄▄▄▄▄   ██
@@ -22,12 +23,12 @@
 #            ▄█████  ▄▄▄  ██     ██  ▀          █
 #    ▄▀▀▄  █ ██     ██▀██ ██ ▄█▄ ██  ▄▄▄       █
 #    ▀   ▀▀  ▀█████ ▀███▀  ▀██▀██▀  ▄ ▄▄▄▄▄   █
-#               ▄ ▀█▀         ▄
-#               █             █
-#     rename first char of each dir or file with upper or lower case
-# --------------------------------------------------------------------------
-# GOAL: Changes the first letter of file or directory names to upper or lowercase.
-# --------------------------------------------------------------------------
+#   ▄           ▄ ▀█▀         ▄                        ▄            ▄
+# ▄ █  ▄ ▄ █    █    ▄   █ ▄  █   ▄  █  ▄ █  ▄ ▄ ▄ █ ▄ █ ▄ ▄ █  ▄ ▄ █ ▄ ▄   ▄ ▄
+# =============================================================================
+# GOAL: Changes the first letter of file or directory names
+#       to upper or lowercase.
+# =============================================================================
 # HOW TO USE:
 # 1. Make it runnable: chmod +x MOOcase.sh
 # 2. Run it: ./MOOcase [options] [path]
@@ -37,8 +38,7 @@
 #       -f : Only change files.
 #       -u : Convert to uppercase (default is lowercase).
 #       -p [path] : Set the target path. Defaults to the current directory.
-# --------------------------------------------------------------------------
-
+# =============================================================================
 # Exit immediately if a command fails.
 set -e
 
