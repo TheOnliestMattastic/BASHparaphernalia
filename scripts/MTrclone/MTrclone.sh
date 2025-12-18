@@ -42,7 +42,7 @@ set -eu
 # Check for required commands
 command -v rclone >/dev/null 2>&1 || { echo "Error: rclone is not installed."; exit 1; }
 command -v findmnt >/dev/null 2>&1 || { echo "Error: findmnt is not installed."; exit 1; }
-command -v xcowsay >/dev/null 2>&1 || { echo "Error: xcowsay is not installed."; exit 1; }
+command -v cowsay >/dev/null 2>&1 || { echo "Error: cowsay is not installed."; exit 1; }
 
 # Cleanup function to kill background rclone processes on exit
 # Reminder: Trap on ERR ensures background rclone processes are killed
@@ -74,7 +74,7 @@ rclone --vfs-cache-mode full mount Dropbox: "$DROPBOX" &
 DROPBOX_PID=$!
 
 # Wait for mounts to establish
-sleep 60s
+sleep 45s
 
 # Create array and track failures
 failures=()
@@ -86,11 +86,11 @@ failures=()
 
 # Reminder: Conditional notifications tell you exactly what worked or failed - check the cow messages!
 if [ ${#failures[@]} -eq 0 ]; then
-	xcowsay "Mooooooo!: OneDrive, GoogleDrive, and Dropbox successfully mounted!" &
+	cowsay -r "Mooooooo!: OneDrive, GoogleDrive, and Dropbox successfully mounted!" | bat -pp -l c &
 elif [ ${#failures[@]} -eq 1 ]; then
-	xcowsay --time=0 --release "I am Error: ${failures[0]} failed to connect!" &
+	cowsay -r --time=0 --release "I am Error: ${failures[0]} failed to connect!" | bat -pp -l c &
 elif [ ${#failures[@]} -eq 2 ]; then
-	xcowsay --time=0 --release "I am Error: ${failures[0]} and ${failures[1]} failed to connect!" &
+	cowsay -r --time=0 --release "I am Error: ${failures[0]} and ${failures[1]} failed to connect!" | bat -pp -l c &
 else
-	xcowsay --time=0 --release "I am Error: All drives failed to connect!" &
+	cowsay -r --time=0 --release "I am Error: All drives failed to connect!" | bat -pp -l c &
 fi
