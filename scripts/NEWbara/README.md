@@ -6,30 +6,32 @@
   <img alt="Banner" src="./assets/banner-light.png">
 </picture>
 
-![License](https://img.shields.io/badge/License-GPL--3.0-bd93f9?style=for-the-badge&logo=gnu&logoColor=white&labelColor=6272a4)
+![License](https://img.shields.io/badge/License-CC%20BY--SA%204.0-bd93f9?style=for-the-badge&logo=creativecommons&logoColor=white&labelColor=6272a4)
 [![Live Site](https://img.shields.io/badge/Toolkit-Site-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4)](https://theonliestmattastic.github.io/BASHparaphernalia/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4)](https://theonliestmattastic.github.io/)
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4)](https://github.com/theonliestmattastic)
 
 ## 🔭 Overview
 
-This repository contains `NEWbara.sh`, a Bash script designed to bootstrap a fresh Nobara/Fedora system with a curated set of packages and applications. It supports DNF, Flatpak, and Snap installations, with options for custom package lists and system-wide Flatpak installations.
+This repository contains `NEWbara.sh`, a Bash script designed to bootstrap a fresh Nobara/Fedora system with a curated set of packages and applications. It supports DNF and Flatpak installations, with options for custom package lists and system-wide Flatpak installations.
 
 ## 🌟 Features
 
-- **Multi-Package Manager Support**: Installs via DNF (system packages), Flatpak (user/system apps), and Snap (universal packages).
-- **Custom Package Lists**: Load packages from text files for DNF, Flatpak, and Snap.
+- **Multi-Package Manager Support**: Installs via DNF (system packages) and Flatpak (applications).
+- **Custom Package Lists**: Load packages from text files for DNF and Flatpak.
+- **Mandatory Configuration Files**: Requires at least one package file (-d or -f) to run.
 - **System/User Flatpak Modes**: Choose between user-specific or system-wide Flatpak installations.
+- **Visual Feedback**: Automatic cowsay and lolcat formatting for engaging user feedback.
 - **Dry Run Mode**: Preview installations without making changes.
 - **Automatic Logging**: Logs all output to a timestamped file.
-- **Non-Interactive**: Runs fully automated with fallback error handling.
+- **Non-Interactive**: Runs fully automated with comprehensive error handling.
 - **Cleanup**: Removes orphaned packages post-installation.
 
 ## ⚛️ Requirements
 
 - Nobara or Fedora Linux (minimum version 42 for compatibility).
-- `sudo` access for DNF and Snap installations.
-- Flatpak and Snap package managers installed (script will verify).
+- `sudo` access for DNF installations.
+- DNF and Flatpak package managers (script will verify and auto-install cowsay/lolcat).
 
 ## 🚀 Blasting Off
 
@@ -47,14 +49,23 @@ chmod +x NEWbara.sh
 ./NEWbara.sh
 ```
 
-For custom packages, create text files (one package per line) and use flags:
+Provide at least one package configuration file:
 
 ```sh
-echo -e "htop\nvim" > my_dnfs.txt
-./NEWbara.sh -d my_dnfs.txt
+# Install from default DNF packages
+./NEWbara.sh -d config/dnf-packages.txt
+
+# Install from default Flatpak packages
+./NEWbara.sh -f config/flatpak-packages.txt
+
+# Install both with system-wide Flatpaks
+./NEWbara.sh -d config/dnf-packages.txt -f config/flatpak-packages.txt -S
+
+# Preview without installing
+./NEWbara.sh -f config/flatpak-packages.txt -n
 ```
 
-See `./NEWbara.sh --help` for full options.
+See `./NEWbara.sh --help` for full options and configuration file details.
 
 ## 🌠 TODO: Future Features
 
@@ -72,14 +83,21 @@ Contributions are welcome! Please open issues for bugs or feature requests, and 
 
 ## 🌕 Notes
 
-- Designed for Nobara/Fedora (minimum version 42); tweak for other distros.
-- Requires `sudo` for DNF/Snap installs; run as regular user.
-- Flatpaks default to user mode (recommended by Nobara wiki).
-- Logs are saved as `NEWbara_YYYYMMDD_HHMMSS.log`.
+- **Distribution Compatibility**: Designed for Nobara/Fedora (minimum version 42); adjust command syntax for other distros.
+- **Sudo Requirement**: Requires `sudo` access for DNF installations; run the script as a regular user (not root).
+- **Configuration Files**: At least one package file (-d or -f) must be provided; the script will exit with an error if none are specified.
+- **Flatpak Scope**: Flatpaks default to user mode (recommended by Nobara wiki); use the `-S` flag for system-wide installations.
+- **Visual Feedback Tools**: `cowsay` and `lolcat` are automatically installed early in the script to ensure consistent visual feedback throughout execution. If you don't want to keep these tools after running the script, you can safely uninstall them:
+  ```sh
+  sudo dnf remove cowsay lolcat
+  ```
+- **Dry-Run Safety**: Use the `-n` flag to preview all installations without making any changes or running the cleanup process.
+- **Logging**: All output is logged to timestamped files in the format `NEWbara_YYYYMMDD_HHMMSS.log`.
+- **Custom Configurations**: See `config/README.md` for details on creating and using custom package configuration files.
 
 ## 🛸 License
 
-This project is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html).
+This project is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
 
 ## 🪐 Recruiter’s Note
 
