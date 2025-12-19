@@ -1,0 +1,178 @@
+<!--
+  =============================================================================
+  NEWbara.sh Script Documentation
+  =============================================================================
+  WHAT: Detailed documentation and demo page for NEWbara.sh system bootstrap
+  WHY:  Provides comprehensive reference with installation, configuration, and
+        usage examples without bloating the main index page
+  HOW:  Semantic HTML5 with shared style.css; includes feature details, code
+        examples, and configuration guidance
+  NOTE: Navigate back to index.html for project overview
+  =============================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NEWbara.sh - Comprehensive Nobara/Fedora system bootstrap automation with configuration-driven package management">
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+  <title>NEWbara.sh - BASHparaphernalia</title>
+</head>
+
+<body>
+
+  <header>
+    <button id="theme-toggle" aria-label="Toggle light/dark theme">🌞</button>
+    <h1>🐧 NEWbara.sh</h1>
+    <h2>System Bootstrap Automation for Nobara/Fedora</h2>
+    <div class="buttons">
+      <a href="../index.html"><img alt="Back to Home" src="https://img.shields.io/badge/Home-Index-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4"></a>
+      <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/NEWbara/NEWbara.sh" target="_blank"><img alt="View Source Code" src="https://img.shields.io/badge/Code-View-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+      <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/tree/main/scripts/NEWbara" target="_blank"><img alt="Full Documentation" src="https://img.shields.io/badge/Docs-Directory-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="project-card">
+      <h2>Overview</h2>
+      <p>
+        <strong>NEWbara.sh</strong> is a comprehensive system bootstrap automation script designed for Nobara and Fedora Linux distributions. It provides configuration-driven package management with explicit safety-first design, automatic visual feedback, and multi-package manager support (DNF and Flatpak).
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h2>Key Features</h2>
+      <ul>
+        <li><strong>Configuration-Driven Installation:</strong> Requires explicit package file input (−d or −f) preventing accidental installations</li>
+        <li><strong>External Package Lists:</strong> Load DNF packages and Flatpak apps from separate config files for reusability</li>
+        <li><strong>Automatic Visual Dependencies:</strong> Auto-installs cowsay/lolcat early for guaranteed colorful feedback throughout execution</li>
+        <li><strong>Dry-Run Safety:</strong> Preview installations without making changes; cleanup operations skipped during dry-runs</li>
+        <li><strong>Multi-Package Manager:</strong> Seamless DNF and Flatpak integration with user/system installation modes</li>
+        <li><strong>Timestamped Logging:</strong> All output logged for troubleshooting and audit trails</li>
+        <li><strong>Smart Cleanup:</strong> Removes orphaned packages and unused Flatpak runtimes post-installation</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <h2>Installation & Setup</h2>
+      <pre class="code"><code">cd BASHparaphernalia/scripts/NEWbara
+chmod +x NEWbara.sh
+
+# Install from configuration file (required)
+./NEWbara.sh -d config/dnf-packages.txt
+
+# Install from Flatpak apps configuration
+./NEWbara.sh -f config/flatpak-packages.txt
+
+# Install both with system-wide Flatpaks
+./NEWbara.sh -d config/dnf-packages.txt -f config/flatpak-packages.txt -S
+
+# Preview without installing (dry-run)
+./NEWbara.sh -d config/dnf-packages.txt -n</code></pre>
+    </div>
+
+    <div class="project-card">
+      <h2>Configuration Files</h2>
+      <p>Create custom package lists in plain text format (one per line):</p>
+      <pre class="code"><code"># config/my-dnf-packages.txt
+neovim
+git
+python3
+nodejs
+tmux
+
+# config/my-flatpak-apps.txt
+org.videolan.VLC
+md.obsidian.Obsidian
+org.kde.krita
+io.github.zen_browser.zen</code></pre>
+      <p><strong>Pro Tip:</strong> Create separate configuration files for different use cases (dev, gaming, media) and switch between them as needed.</p>
+    </div>
+
+    <div class="project-card">
+      <h2>Command-Line Options</h2>
+      <pre class="code"><code">NEWbara.sh [OPTIONS]
+
+OPTIONS:
+  -d FILE    Path to DNF packages configuration file
+  -f FILE    Path to Flatpak apps configuration file
+  -S         Install Flatpak apps system-wide (default: user installation)
+  -n         Dry-run mode (preview without installing)
+  -h         Display help message
+  
+EXAMPLES:
+  ./NEWbara.sh -d packages.txt
+  ./NEWbara.sh -d dnf.txt -f flatpak.txt -S -n
+  ./NEWbara.sh -h</code></pre>
+    </div>
+
+    <div class="project-card">
+      <h2>Dependencies</h2>
+      <ul>
+        <li><strong>Required:</strong> dnf, flatpak, sudo</li>
+        <li><strong>Auto-installed:</strong> cowsay, lolcat (installed early for visual feedback)</li>
+        <li><strong>Optional:</strong> None</li>
+      </ul>
+      <p><strong>Note:</strong> cowsay and lolcat can be safely uninstalled after running: <code>sudo dnf remove cowsay lolcat</code></p>
+    </div>
+
+    <div class="project-card">
+      <h2>Troubleshooting</h2>
+      <ul>
+        <li><strong>Permission denied:</strong> Make sure script is executable with <code>chmod +x NEWbara.sh</code></li>
+        <li><strong>Command not found:</strong> Use full path to script or ensure it's in your PATH</li>
+        <li><strong>Missing packages file:</strong> Script requires −d or −f flag; provide at least one configuration file</li>
+        <li><strong>Flatpak installation fails:</strong> Ensure flatpak is installed and remotes are configured with <code>flatpak remotes</code></li>
+        <li><strong>Check logs:</strong> Review timestamped logs in the script output directory for detailed error information</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    <p><q><em>Sometimes the questions are complicated and the answers are simple.</em></q> — Dr. Seuss</p>
+  </footer>
+
+  <!-- =========================================================================
+       JAVASCRIPT: Theme Toggle and Persistence
+       =========================================================================
+       WHAT: Client-side theme switching with localStorage persistence
+       WHY:  Respects user's color preference across page reloads
+       HOW:  Checks for saved preference, applies appropriate class, stores choice
+       NOTE: Uses data-theme attribute on HTML element for CSS theme switching
+  ======================================================================== -->
+  <script>
+    (function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const htmlElement = document.documentElement;
+
+      // Check for saved theme preference or default to system preference
+      const savedTheme = localStorage.getItem('theme') || 'system';
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initialTheme = savedTheme === 'system' ? (prefersDark ? 'dark' : 'light') : savedTheme;
+
+      htmlElement.setAttribute('data-theme', initialTheme);
+      updateToggleEmoji(initialTheme);
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateToggleEmoji(newTheme);
+      });
+
+      function updateToggleEmoji(theme) {
+        themeToggle.textContent = theme === 'dark' ? '🌙' : '🌞';
+      }
+    })();
+  </script>
+
+</body>
+
+</html>
