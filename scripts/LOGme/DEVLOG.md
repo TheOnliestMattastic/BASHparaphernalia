@@ -1,6 +1,6 @@
-# myLoginScript.sh Development Timeline
+# LOGme.sh Development Timeline
 
-This document chronicles the development history of the `myLoginScript.sh` script, from its humble beginnings as a simple login routine to its current state as a sophisticated login enhancement system with intelligent autostart configuration and comprehensive error handling.
+This document chronicles the development history of the `LOGme.sh` script, from its humble beginnings as a simple login routine to its current state as a sophisticated terminal-based login enhancement system with split-pane display, RGB control, and comprehensive error handling.
 
 ## 2025-10-04: Initial Creation as login.sh
 
@@ -120,25 +120,56 @@ This document chronicles the development history of the `myLoginScript.sh` scrip
   - Comprehensive error reporting with actionable messages
   - Non-disruptive operation (continues despite partial failures)
 
-## Current Status (2025-10-29)
+## 2025-12-19: Terminal Integration and Wezterm Migration
 
-The `myLoginScript.sh` script is now a sophisticated login enhancement system featuring:
+**Changes:**
+- **Integrated wezterm terminal display** for a unified login experience
+- **Migrated from xcowsay to wezterm split-pane layout:**
+  - Left pane: OpenRGB profile setup → cbonsai visualization
+  - Right pane: fortune → cowsay → bat syntax highlighting → MTrclone.sh execution
+- **Consolidated command execution** into string variables for maintainability
+- **Updated dependency checks** to include wezterm, fortune, cowsay, bat, cbonsai
+- **Enhanced comment structure** to follow WHAT/WHY/HOW/NOTE standards
+- **Improved user feedback** with terminal-based logging of startup processes
 
+**Benefits:**
+- Single terminal window consolidates all initialization feedback
+- Interactive panes allow user to view and interact with startup output
+- Visual appeal with syntax highlighting and bonsai animation
+- Easier troubleshooting with visible output logs
+- More professional presentation during login
+
+## Current Status (2025-12-19)
+
+The `LOGme.sh` script is now a sophisticated terminal-based login enhancement system featuring:
+
+- **Split-Pane Terminal Display:** wezterm orchestration with concurrent visual feedback
+- **RGB Light Control:** Integrated OpenRGB profile management within terminal session
+- **Visual Effects:** Fortune messages with cowsay and bat syntax highlighting
+- **System Visualization:** cbonsai animation during initialization
+- **Task Logging:** Visible execution of additional startup scripts (MTrclone.sh)
 - **Smart Configuration Management:** Intelligent autostart detection and setup
 - **Robust Error Handling:** Comprehensive dependency checking and graceful failure recovery
 - **User-Centric Design:** Interactive prompts and clear feedback throughout execution
 - **Cross-Platform Compatibility:** Works with both KDE Plasma and GNOME desktop environments
-- **Modular Architecture:** Clean function-based design for maintainability
+- **Modular Architecture:** Clean function-based design with string variable command composition
 - **Production Readiness:** Enterprise-grade reliability with proper process management
 
 ## Architectural Evolution
 
-The script's development journey demonstrates the transformation from a simple login routine to a professional-grade system administration tool:
+The script's development journey demonstrates the transformation from a simple login routine to a sophisticated terminal-based system initialization tool:
 
-- **From Simple to Sophisticated:** Evolved from basic RGB + fortune display to comprehensive login management
-- **Configuration Intelligence:** Added smart detection and user-guided setup processes
-- **Error Resilience:** Implemented robust error handling and recovery mechanisms
-- **User Experience Focus:** Prioritized clear communication and non-disruptive operation
-- **Cross-Platform Design:** Ensured compatibility across different desktop environments
+- **Phase 1 - Foundation:** From basic RGB + fortune display to comprehensive login management
+- **Phase 2 - Intelligence:** Added smart detection and user-guided setup processes  
+- **Phase 3 - Resilience:** Implemented robust error handling and graceful recovery mechanisms
+- **Phase 4 - Presentation:** Evolved from separate system calls to integrated terminal-based display
+- **Phase 5 - Current:** Multi-pane terminal orchestration with visual feedback and task logging
 
-This evolution showcases the maturation of a personal utility into a reliable, user-friendly system enhancement tool suitable for production desktop environments.
+**Key Design Decisions:**
+- Consolidated all initialization into a single terminal window for cohesive user experience
+- Used wezterm's split-pane capability to show multiple parallel activities
+- Factored command strings into variables for easier maintenance and customization
+- Maintained backward compatibility with desktop autostart systems
+- Preserved graceful error handling throughout architectural evolution
+
+This evolution showcases the maturation of a personal utility into a professional-grade login enhancement tool with sophisticated terminal orchestration and user-focused design.
