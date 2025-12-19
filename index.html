@@ -2,13 +2,13 @@
   =============================================================================
   BASHparaphernalia Website (index.html)
   =============================================================================
-  WHAT: Interactive HTML webpage showcasing the BASHparaphernalia toolkit
-  WHY:  Provides comprehensive project overview with installation guides and
-        detailed script documentation for visitors and recruiters
-  HOW:  Semantic HTML5 structure with theme-aware styling, code blocks, and
-        badge links; JavaScript handles light/dark theme persistence
-  NOTE: Uses external style.css for theming; comments follow WHAT/WHY/HOW/NOTE
-        pattern throughout for clarity and maintainability
+  WHAT: Landing page hub for BASHparaphernalia automation script toolkit
+  WHY:  Multi-page structure keeps landing clean while detailed documentation
+        lives on individual script pages for scalability and maintainability
+  HOW:  Semantic HTML5 with theme-aware styling; each script card links to
+        dedicated documentation page with full details, demos, and examples
+  NOTE: Individual script pages stored in scripts/ directory; theme toggle
+        uses localStorage for persistence across all pages
   =============================================================================
 -->
 <!DOCTYPE html>
@@ -54,9 +54,9 @@
      BODY CONTENT
      =========================================================================
      WHAT: Main visible content of the webpage
-     WHY:  Structured sections provide comprehensive project information
-     HOW:  Semantic HTML5 elements (header, main, footer) with organized
-           project cards, code examples, and navigation
+     WHY:  Structured sections provide project overview and script navigation
+     HOW:  Semantic HTML5 elements (header, main, footer) with project cards
+           and links to individual script documentation pages
 ======================================================================== -->
 <body>
 
@@ -97,13 +97,13 @@
   </header>
 
   <!-- =========================================================================
-       MAIN CONTENT: Project Cards and Documentation
+       MAIN CONTENT: Project Hub with Script Navigation
        =========================================================================
-       WHAT: Comprehensive documentation for each script with examples
-       WHY:  Provides users and recruiters with detailed information about
-             capabilities, installation, and usage patterns
-       HOW:  Structured project cards with descriptions, feature lists, and
-             code examples for each script
+       WHAT: Overview and navigation cards for each script documentation page
+       WHY:  Provides users with brief summaries and links to detailed docs;
+             keeps landing page clean while scaling to many scripts
+       HOW:  Each script gets a card with brief description and link to full
+             documentation page in scripts/ directory
   ======================================================================== -->
   <main>
 
@@ -126,294 +126,98 @@
     </div>
 
     <!-- =====================================================================
-         NEWbara.sh: System Bootstrap Automation with Configuration Files
+         SCRIPT CARDS: Navigation Hub with Summaries
          ===================================================================== -->
     <div class="project-card">
-      <h2>🐧 NEWbara.sh - System Bootstrap Automation</h2>
-      <p class="buttons card">
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/NEWbara/NEWbara.sh" target="_blank"><img alt="View Source Code" src="https://img.shields.io/badge/Code-View-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/tree/main/scripts/NEWbara" target="_blank"><img alt="Full Documentation" src="https://img.shields.io/badge/Docs-Directory-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://www.gnu.org/software/bash/" target="_blank"><img alt="Bash Shell" src="https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://docs.fedoraproject.org/en-US/quick-docs/dnf/" target="_blank"><img alt="DNF Package Manager" src="https://img.shields.io/badge/Package-dnf-bd93f9?logo=fedora&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://flatpak.org/" target="_blank"><img alt="Flatpak Application Platform" src="https://img.shields.io/badge/Flatpak-Apps-bd93f9?logo=flatpak&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+      <h2>🐧 NEWbara.sh</h2>
+      <p><strong>System Bootstrap Automation for Nobara/Fedora</strong></p>
+      <p>
+        Configuration-driven system bootstrap with DNF and Flatpak package management. Features automatic
+        visual feedback, dry-run safety, and external configuration files for flexible deployment.
       </p>
+      <p class="buttons card">
+        <a href="./scripts/newbara.html"><img alt="View Documentation" src="https://img.shields.io/badge/Docs-View-bd93f9?style=for-the-badge&logo=readme&logoColor=white&labelColor=6272a4"></a>
+        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/NEWbara/NEWbara.sh" target="_blank"><img alt="View Source" src="https://img.shields.io/badge/Code-GitHub-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+      </p>
+    </div>
 
-      <p><strong>Purpose:</strong> Comprehensive Nobara/Fedora system bootstrapper with configuration-driven package management, automatic visual feedback, and safety-first design.</p>
+    <div class="project-card">
+      <h2>☁️ MTrclone.sh</h2>
+      <p><strong>Cloud Storage Mount Automation</strong></p>
+      <p>
+        Seamless mounting of OneDrive, Google Drive, and Dropbox using rclone. Provides multi-account support,
+        automatic directory creation, mount verification, and real-time feedback with visual notifications.
+      </p>
+      <p class="buttons card">
+        <a href="./scripts/mtrclone.html"><img alt="View Documentation" src="https://img.shields.io/badge/Docs-View-bd93f9?style=for-the-badge&logo=readme&logoColor=white&labelColor=6272a4"></a>
+        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/MTrclone/MTrclone.sh" target="_blank"><img alt="View Source" src="https://img.shields.io/badge/Code-GitHub-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+      </p>
+    </div>
 
-      <h3>Key Features</h3>
-      <ul>
-        <li><strong>Configuration-Driven Installation:</strong> Requires explicit package file input (−d or −f) preventing accidental installations</li>
-        <li><strong>External Package Lists:</strong> Load DNF packages and Flatpak apps from separate config files for reusability</li>
-        <li><strong>Automatic Visual Dependencies:</strong> Auto-installs cowsay/lolcat early for guaranteed colorful feedback throughout execution</li>
-        <li><strong>Dry-Run Safety:</strong> Preview installations without making changes; cleanup operations skipped during dry-runs</li>
-        <li><strong>Multi-Package Manager:</strong> Seamless DNF and Flatpak integration with user/system installation modes</li>
-        <li><strong>Timestamped Logging:</strong> All output logged for troubleshooting and audit trails</li>
-        <li><strong>Smart Cleanup:</strong> Removes orphaned packages and unused Flatpak runtimes post-installation</li>
-      </ul>
+    <div class="project-card">
+      <h2>🌈 LOGme.sh</h2>
+      <p><strong>Terminal-Based Login Enhancement</strong></p>
+      <p>
+        Sophisticated wezterm split-pane orchestration with OpenRGB lighting, cbonsai visualization, fortune
+        messages, and concurrent task execution. Includes smart autostart detection for both KDE and GNOME.
+      </p>
+      <p class="buttons card">
+        <a href="./scripts/logme.html"><img alt="View Documentation" src="https://img.shields.io/badge/Docs-View-bd93f9?style=for-the-badge&logo=readme&logoColor=white&labelColor=6272a4"></a>
+        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/LOGme/LOGme.sh" target="_blank"><img alt="View Source" src="https://img.shields.io/badge/Code-GitHub-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+      </p>
+    </div>
 
-      <h3>Installation & Setup</h3>
-      <pre class="code"><code>cd BASHparaphernalia/scripts/NEWbara
-chmod +x NEWbara.sh
+    <div class="project-card">
+      <h2>🤖 DONtype.sh</h2>
+      <p><strong>In-Game Keybinding Automation</strong></p>
+      <p>
+        Automated keybinding setup for Schedule I using xdotool. Maps function keys to teleport locations
+        and utility commands with countdown feedback and error recovery. Completes setup in ~20 seconds.
+      </p>
+      <p class="buttons card">
+        <a href="./scripts/dontype.html"><img alt="View Documentation" src="https://img.shields.io/badge/Docs-View-bd93f9?style=for-the-badge&logo=readme&logoColor=white&labelColor=6272a4"></a>
+        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/DONtype/DONtype.sh" target="_blank"><img alt="View Source" src="https://img.shields.io/badge/Code-GitHub-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+      </p>
+    </div>
 
-# Install from configuration file (required)
-./NEWbara.sh -d config/dnf-packages.txt
-
-# Install from Flatpak apps configuration
-./NEWbara.sh -f config/flatpak-packages.txt
-
-# Install both with system-wide Flatpaks
-./NEWbara.sh -d config/dnf-packages.txt -f config/flatpak-packages.txt -S
-
-# Preview without installing (dry-run)
-./NEWbara.sh -d config/dnf-packages.txt -n</code></pre>
-
-      <h3>Configuration Files</h3>
-      <p>Create custom package lists in plain text format (one per line):</p>
-      <pre class="code"><code># config/my-dnf-packages.txt
-neovim
-git
-python3
-
-# config/my-flatpak-apps.txt
-org.videolan.VLC
-md.obsidian.Obsidian
-org.kde.krita</code></pre>
-
-      <p><strong>Dependencies:</strong> dnf, flatpak, sudo (cowsay/lolcat auto-installed)</p>
-      <p><strong>Note:</strong> cowsay and lolcat can be safely uninstalled after running: <code>sudo dnf remove cowsay lolcat</code></p>
+    <div class="project-card">
+      <h2>🔄 COWcase.sh</h2>
+      <p><strong>Batch File/Directory Case Conversion</strong></p>
+      <p>
+        Standardizes file and directory naming with flexible case conversion. Supports selective processing
+        (files/directories), custom paths, and optional visual feedback. Zero dependencies required.
+      </p>
+      <p class="buttons card">
+        <a href="./scripts/cowcase.html"><img alt="View Documentation" src="https://img.shields.io/badge/Docs-View-bd93f9?style=for-the-badge&logo=readme&logoColor=white&labelColor=6272a4"></a>
+        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/COWcase/COWcase.sh" target="_blank"><img alt="View Source" src="https://img.shields.io/badge/Code-GitHub-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+      </p>
     </div>
 
     <!-- =====================================================================
-         MTrclone.sh: Cloud Storage Mount Automation
+         QUICK START: Installation Instructions
          ===================================================================== -->
     <div class="project-card">
-      <h2>☁️ MTrclone.sh - Cloud Storage Mount Automation</h2>
-      <p class="buttons card">
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/MTrclone/MTrclone.sh" target="_blank"><img alt="View Source Code" src="https://img.shields.io/badge/Code-View-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/tree/main/scripts/MTrclone" target="_blank"><img alt="Full Documentation" src="https://img.shields.io/badge/Docs-Directory-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://www.gnu.org/software/bash/" target="_blank"><img alt="Bash Shell" src="https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://rclone.org/" target="_blank"><img alt="Rclone Cloud Tool" src="https://img.shields.io/badge/Cloud-rclone-bd93f9?logo=icloud&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-      </p>
-
-      <p><strong>Purpose:</strong> Automates mounting multiple cloud storage accounts (OneDrive, Google Drive, Dropbox) locally with robust error handling and verification.</p>
-
-      <h3>Demo</h3>
-      <img src="./assets/LOGme-preview.GIF" alt="MTrclone execution with cowsay feedback and cbonsai animation" style="max-width: 600px; width: 100%; border-radius: 8px;">
-      <p style="font-size: 0.9em; margin-top: 0.5em; color: #888;">Shows: MTrclone cowsay message on right pane while cbonsai animation continues on left pane</p>
-
-      <h3>Key Features</h3>
-      <ul>
-        <li><strong>Multi-Account Support:</strong> Mount OneDrive, Google Drive, and Dropbox simultaneously</li>
-        <li><strong>Directory Creation:</strong> Automatically creates local mount points with proper structure</li>
-        <li><strong>Rclone Integration:</strong> Configures caching and mount options for optimal performance</li>
-        <li><strong>Mount Verification:</strong> Validates successful mounts using findmnt with detailed reporting</li>
-        <li><strong>Error Recovery:</strong> Continues execution despite individual mount failures</li>
-        <li><strong>Real-Time Feedback:</strong> Progress indicators during mounting operations</li>
-      </ul>
-
-      <h3>Installation & Setup</h3>
-      <pre class="code"><code"># Prerequisites: Install and configure rclone with cloud remotes
-rclone config
-
-# Make executable and run
-cd BASHparaphernalia/scripts/MTrclone
-chmod +x MTrclone.sh
-./MTrclone.sh</code></pre>
-
-      <p><strong>Dependencies:</strong> rclone (configured with cloud remotes)</p>
-    </div>
-
-    <!-- =====================================================================
-         LOGme.sh: Terminal-Based Login Enhancement with Wezterm
-         ===================================================================== -->
-    <div class="project-card">
-      <h2>🌈 LOGme.sh - Terminal-Based Login Enhancement</h2>
-      <p class="buttons card">
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/LOGme/LOGme.sh" target="_blank"><img alt="View Source Code" src="https://img.shields.io/badge/Code-View-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/tree/main/scripts/LOGme" target="_blank"><img alt="Full Documentation" src="https://img.shields.io/badge/Docs-Directory-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://www.gnu.org/software/bash/" target="_blank"><img alt="Bash Shell" src="https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://wezfurlong.org/wezterm/" target="_blank"><img alt="Wezterm Terminal" src="https://img.shields.io/badge/Terminal-Wezterm-bd93f9?style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://openrgb.org/" target="_blank"><img alt="OpenRGB Lighting" src="https://img.shields.io/badge/RGB-OpenRGB-bd93f9?style=for-the-badge&labelColor=6272a4"></a>
-      </p>
-
-      <p><strong>Purpose:</strong> Sophisticated login enhancement using wezterm split-pane orchestration to display RGB setup, system visualization, fortune messages, and task logging concurrently.</p>
-
-      <h3>Demo</h3>
-      <video width="100%" controls style="max-width: 600px; border-radius: 8px;">
-        <source src="./assets/LOGme-preview.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <p style="font-size: 0.9em; margin-top: 0.5em; color: #888;">Video shows: Autoload prompt → User input (y) → Wezterm split panes with cbonsai animation and fortune display → MTrclone task execution</p>
-
-      <h3>Key Features</h3>
-      <ul>
-        <li><strong>Split-Pane Terminal Display:</strong> Left pane shows OpenRGB setup then cbonsai animation; right pane displays fortune with syntax highlighting then runs MTrclone</li>
-        <li><strong>Wezterm Orchestration:</strong> Advanced terminal control for concurrent visual feedback</li>
-        <li><strong>OpenRGB Integration:</strong> Automatic RGB profile loading for ambient lighting control</li>
-        <li><strong>System Visualization:</strong> Bonsai tree animation provides engaging visual feedback during initialization</li>
-        <li><strong>Fortune Display:</strong> Random quotes with cowsay ASCII art, syntax-highlighted via bat</li>
-        <li><strong>Task Logging:</strong> Visible execution of additional startup scripts (MTrclone.sh)</li>
-        <li><strong>Smart Autostart:</strong> Detects existing configuration; prompts for setup only when needed</li>
-        <li><strong>Cross-Desktop:</strong> Works with both KDE Plasma and GNOME (.desktop file autostart)</li>
-        <li><strong>Graceful Error Handling:</strong> Continues execution despite individual component failures</li>
-      </ul>
-
-      <h3>Installation & Setup</h3>
-      <pre class="code"><code># Install dependencies (Fedora/Nobara)
-sudo dnf install wezterm openrgb fortune cowsay bat cbonsai
-
-# Make executable and run
-cd BASHparaphernalia/scripts/LOGme
-chmod +x LOGme.sh
-./LOGme.sh
-
-# Script will prompt to set up autostart if not already configured</code></pre>
-
-      <p><strong>Dependencies:</strong> wezterm, openrgb, fortune, cowsay, bat, cbonsai</p>
-      <p><strong>Notes:</strong> Requires OpenRGB to be configured with a profile named "Home"; runs automatically at login via .desktop file in ~/.config/autostart/</p>
-    </div>
-
-    <!-- =====================================================================
-         DONtype.sh: In-Game Keybinding Automation
-         ===================================================================== -->
-    <div class="project-card">
-      <h2>🤖 DONtype.sh - In-Game Keybinding Automation</h2>
-      <p class="buttons card">
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/DONtype/DONtype.sh" target="_blank"><img alt="View Source Code" src="https://img.shields.io/badge/Code-View-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/tree/main/scripts/DONtype" target="_blank"><img alt="Full Documentation" src="https://img.shields.io/badge/Docs-Directory-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://www.gnu.org/software/bash/" target="_blank"><img alt="Bash Shell" src="https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://github.com/jordansissel/xdotool" target="_blank"><img alt="xdotool Automation" src="https://img.shields.io/badge/Automation-xdotool-bd93f9?style=for-the-badge&labelColor=6272a4"></a>
-      </p>
-
-      <p><strong>Purpose:</strong> Automates in-game keybinding setup for Schedule I using xdotool with enhanced reliability and user feedback.</p>
-
-      <h3>Key Features</h3>
-      <ul>
-        <li><strong>Function Key Binding:</strong> Maps teleport locations and utility commands to F1–F12</li>
-        <li><strong>Fast Setup:</strong> Completes configuration in approximately 20 seconds</li>
-        <li><strong>Real-Time Feedback:</strong> Countdown timer and progress indicators</li>
-        <li><strong>Error Recovery:</strong> Continues despite individual binding failures</li>
-        <li><strong>Dependency Validation:</strong> Checks for xdotool availability with helpful error messages</li>
-        <li><strong>Robust Execution:</strong> Comprehensive error handling with detailed status reporting</li>
-      </ul>
-
-      <h3>Installation & Setup</h3>
-      <pre class="code"><code># Install xdotool
-sudo dnf install xdotool
-
-# Make executable and run before launching game
-cd BASHparaphernalia/scripts/DONtype
-chmod +x DONtype.sh
-./DONtype.sh</code></pre>
-
-      <p><strong>Dependencies:</strong> xdotool, X11 display server</p>
-      <p><strong>Usage:</strong> Run before launching Schedule I for automated keybinding configuration</p>
-    </div>
-
-    <!-- =====================================================================
-         MOOcase.sh: Batch File/Directory Case Conversion
-         ===================================================================== -->
-    <div class="project-card">
-      <h2>🔄 MOOcase.sh - Batch File/Directory Case Conversion</h2>
-      <p class="buttons card">
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/MOOcase/MOOcase.sh" target="_blank"><img alt="View Source Code" src="https://img.shields.io/badge/Code-View-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/tree/main/scripts/MOOcase" target="_blank"><img alt="Full Documentation" src="https://img.shields.io/badge/Docs-Directory-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://www.gnu.org/software/bash/" target="_blank"><img alt="Bash Shell" src="https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-      </p>
-
-      <p><strong>Purpose:</strong> Standardizes file and directory naming by batch converting first character case with flexible filtering and optional visual feedback.</p>
-
-      <h3>Key Features</h3>
-      <ul>
-        <li><strong>Case Conversion Modes:</strong> Lowercase by default; uppercase with −u flag</li>
-        <li><strong>Selective Processing:</strong> Process directories only (−d), files only (−f), or both</li>
-        <li><strong>Custom Path Targeting:</strong> Specify target directory with −p flag (defaults to current directory)</li>
-        <li><strong>Safe Renaming:</strong> Only renames items when new name differs from original</li>
-        <li><strong>Visual Feedback:</strong> Cowsay/lolcat messages when available (graceful fallback)</li>
-        <li><strong>Comprehensive Logging:</strong> Detailed output of all rename operations</li>
-        <li><strong>Error Handling:</strong> Robust recovery with clear error messages</li>
-      </ul>
-
-      <h3>Installation & Setup</h3>
-      <pre class="code"><code"># No dependencies required (optional cowsay/lolcat for visual feedback)
-cd BASHparaphernalia/scripts/MOOcase
-chmod +x MOOcase.sh
-
-# Convert files to lowercase in current directory
-./MOOcase.sh
-
-# Convert directories only to uppercase
-./MOOcase.sh -u -d
-
-# Convert files in specific directory to lowercase
-./MOOcase.sh -p /path/to/directory -f</code></pre>
-
-      <p><strong>Dependencies:</strong> None required (optional: cowsay, lolcat for enhanced feedback)</p>
-    </div>
-
-    <!-- =====================================================================
-         GETTING STARTED: Installation and Configuration Instructions
-         ===================================================================== -->
-    <div class="project-card">
-      <h2>🚀 Getting Started</h2>
-
-      <h3>Prerequisites</h3>
-      <ul>
-        <li>Linux system (tested on Nobara/Fedora; adaptable to other distributions)</li>
-        <li>Bash shell (standard on most Linux distributions)</li>
-        <li>Git (for cloning the repository)</li>
-        <li>Sudo access (for system-level operations)</li>
-      </ul>
-
-      <h3>Quick Installation</h3>
-      <pre class="code"><code># Clone the repository
+      <h2>🚀 Quick Start</h2>
+      <pre class="code"><code"># Clone the repository
 git clone https://github.com/TheOnliestMattastic/BASHparaphernalia.git
 cd BASHparaphernalia
 
 # Make all scripts executable
 chmod +x scripts/*/*.sh
 
-# Or make individual scripts executable
-chmod +x scripts/NEWbara/NEWbara.sh
-chmod +x scripts/LOGme/LOGme.sh
-# ... etc</code></pre>
-
-      <h3>Run Individual Scripts</h3>
-      <pre class="code"><code"># NEWbara system bootstrap
-./scripts/NEWbara/NEWbara.sh -d scripts/NEWbara/config/dnf-packages.txt
-
-# LOGme login enhancement
-./scripts/LOGme/LOGme.sh
-
-# MTrclone cloud mounts
-./scripts/MTrclone/MTrclone.sh
-
-# DONtype game setup
-./scripts/DONtype/DONtype.sh
-
-# MOOcase batch rename
-./scripts/MOOcase/MOOcase.sh -h</code></pre>
-
-      <h3>Script-Specific Requirements</h3>
-      <ul>
-        <li><strong>NEWbara.sh:</strong> Requires dnf, flatpak, sudo access, and at least one package configuration file (−d or −f)</li>
-        <li><strong>LOGme.sh:</strong> Requires wezterm, openrgb, fortune, cowsay, bat, cbonsai</li>
-        <li><strong>MTrclone.sh:</strong> Requires rclone configured with cloud account remotes</li>
-        <li><strong>DONtype.sh:</strong> Requires xdotool and X11 display server</li>
-        <li><strong>MOOcase.sh:</strong> No dependencies (optional cowsay/lolcat for visual feedback)</li>
-      </ul>
-
-      <p><strong>Note:</strong> Each script includes help documentation: run with <code>--help</code> or <code>-h</code> flags for detailed options.</p>
+# View a script's detailed documentation
+# Visit the individual script pages (linked above)</code></pre>
+      <p>Each script has dedicated documentation with full installation guides, configuration examples, and troubleshooting. Click "Docs" on any script card above.</p>
     </div>
 
     <!-- =====================================================================
-         DOCUMENTATION: Project Architecture and Standards
+         DOCUMENTATION STANDARDS: Code Quality and Patterns
          ===================================================================== -->
     <div class="project-card">
       <h2>📚 Documentation Standards</h2>
 
-      <h3>Code Comments</h3>
-      <p>All scripts follow professional WHAT/WHY/HOW/NOTE comment patterns:</p>
+      <h3>Code Comments (WHAT/WHY/HOW/NOTE)</h3>
+      <p>All scripts follow professional comment patterns for clarity and maintainability:</p>
       <ul>
         <li><strong>WHAT:</strong> Description of what the section does</li>
         <li><strong>WHY:</strong> Explanation of why it's needed or designed this way</li>
@@ -421,17 +225,16 @@ chmod +x scripts/LOGme/LOGme.sh
         <li><strong>NOTE:</strong> Optional gotchas, alternatives, or important reminders</li>
       </ul>
 
-      <h3>Configuration Files</h3>
-      <p>Scripts use external configuration files for flexibility:</p>
+      <h3>Architecture & Design</h3>
       <ul>
-        <li>NEWbara.sh: <code>config/dnf-packages.txt</code> and <code>config/flatpak-packages.txt</code></li>
-        <li>Create custom configurations for team standardization and version control</li>
-        <li>Plain text format (one package/app ID per line) for easy editing</li>
+        <li><strong>Configuration Files:</strong> External configuration for flexibility and team standardization</li>
+        <li><strong>Error Handling:</strong> Graceful error recovery with clear user feedback</li>
+        <li><strong>Visual Feedback:</strong> Real-time progress indicators and colorful output</li>
+        <li><strong>Safety-First:</strong> Dry-run modes, validation checks, and non-destructive operations</li>
       </ul>
 
       <h3>License</h3>
       <p>All scripts are distributed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License (CC-BY-SA-4.0)</a>.</p>
-      <p>You are free to use, modify, and distribute these scripts as long as you provide attribution and apply the same license to derivative works.</p>
     </div>
 
     <!-- =====================================================================
@@ -443,60 +246,27 @@ chmod +x scripts/LOGme/LOGme.sh
         This project demonstrates not just automation capabilities, but a complete professional development approach. Each script evolved from solving real-world challenges and showcases:
       </p>
 
-      <h3>Technical Skills Demonstrated</h3>
+      <h3>Technical Skills</h3>
       <ul>
-        <li><strong>Advanced Bash Scripting:</strong> Error handling, logging, user interaction, configuration management, and process control</li>
-        <li><strong>Linux System Administration:</strong> Package management (DNF, Flatpak), service configuration, terminal orchestration, system automation</li>
-        <li><strong>Software Architecture:</strong> External configuration files, modular design, conditional execution, graceful error recovery</li>
-        <li><strong>Cross-Tool Integration:</strong> Coordinating multiple utilities (rclone, OpenRGB, wezterm, xdotool) into cohesive workflows</li>
-        <li><strong>Professional Documentation:</strong> WHAT/WHY/HOW/NOTE comment patterns, comprehensive READMEs, user-friendly interfaces</li>
-        <li><strong>Configuration Design:</strong> External configuration files for flexibility, supporting both individual and team use cases</li>
-      </ul>
-
-      <h3>Professional Qualities</h3>
-      <ul>
-        <li><strong>Self-Directed Learning:</strong> Researching and implementing complex tools independently</li>
-        <li><strong>Attention to Detail:</strong> Comprehensive error handling, validation, and safety-first design</li>
-        <li><strong>User Experience:</strong> Creating scripts that are both powerful and accessible</li>
-        <li><strong>Maintainability:</strong> Clean architecture, professional documentation, and modular design</li>
-        <li><strong>Problem-Solving:</strong> Identifying repetitive tasks and creating maintainable automated solutions</li>
+        <li><strong>Advanced Bash:</strong> Error handling, logging, user interaction, configuration management</li>
+        <li><strong>System Administration:</strong> Package management (DNF, Flatpak), service configuration, terminal orchestration</li>
+        <li><strong>Software Architecture:</strong> External configuration files, modular design, graceful error recovery</li>
+        <li><strong>Cross-Tool Integration:</strong> Coordinating multiple utilities (rclone, OpenRGB, wezterm, xdotool)</li>
+        <li><strong>Professional Documentation:</strong> WHAT/WHY/HOW/NOTE patterns, comprehensive guides, user-friendly interfaces</li>
       </ul>
 
       <h3>Development Approach</h3>
       <ul>
         <li><strong>Iterative Improvement:</strong> Scripts evolved from simple solutions to robust, feature-rich tools</li>
         <li><strong>Testing & Debugging:</strong> Real-world usage leading to improved error handling and reliability</li>
-        <li><strong>Version Control:</strong> Proper Git usage with meaningful conventional commits and clear repository organization</li>
-        <li><strong>User-Centered Design:</strong> Help systems, validation checks, clear feedback, and graceful degradation</li>
+        <li><strong>Version Control:</strong> Meaningful conventional commits and clear repository organization</li>
+        <li><strong>User-Centered Design:</strong> Help systems, validation checks, clear feedback, graceful degradation</li>
       </ul>
 
       <p>
         This toolkit reflects the methodical, user-focused approach I bring to IT support, system administration,
         and software development roles: resourceful, detail-oriented, and committed to creating solutions that
         work reliably in production environments.
-      </p>
-    </div>
-
-    <!-- =====================================================================
-         LICENSE INFORMATION: Open Source License Details
-         ===================================================================== -->
-    <div class="project-card">
-      <h2>🛸 License</h2>
-      <p>
-        This project is distributed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License (CC-BY-SA-4.0)</a>.
-      </p>
-      <p>
-        <strong>What this means:</strong> You are free to use, modify, and distribute these scripts for any purpose,
-        provided you:
-      </p>
-      <ul>
-        <li>Provide attribution to the original author</li>
-        <li>Apply the same CC-BY-SA-4.0 license to any derivative works</li>
-        <li>Include a copy of the license with your distribution</li>
-      </ul>
-      <p>
-        This more permissive license encourages collaboration and broader community use while maintaining
-        the original contribution's visibility and ensuring improvements benefit everyone.
       </p>
     </div>
 
@@ -532,38 +302,39 @@ chmod +x scripts/LOGme/LOGme.sh
   <!-- =========================================================================
        JAVASCRIPT: Theme Toggle and Persistence
        =========================================================================
-       WHAT: Client-side script for light/dark theme switching
-       WHY:  Improves user experience with theme preference persistence
-       HOW:  Detects user preference, saves to localStorage, updates on toggle
-       NOTE: Complements CSS variables defined in style.css for theming
+       WHAT: Client-side theme switching with localStorage persistence
+       WHY:  Respects user's color preference across page reloads and all pages
+       HOW:  Checks for saved preference, applies appropriate class, stores choice
+       NOTE: Uses data-theme attribute on HTML element for CSS theme switching
   ======================================================================== -->
   <script>
-    // WHAT: Theme toggle functionality with localStorage persistence
-    // WHY:  Respects user theme preference across page visits
-    // HOW:  Stores selection in localStorage and updates DOM attribute
-    const toggleBtn = document.getElementById('theme-toggle');
-    const currentTheme = localStorage.getItem('theme');
+    (function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const htmlElement = document.documentElement;
 
-    // Restore previously selected theme
-    if (currentTheme) {
-      document.documentElement.setAttribute('data-theme', currentTheme);
-      toggleBtn.textContent = currentTheme === 'dark' ? '🌛' : '🌞';
-    }
+      // Check for saved theme preference or default to system preference
+      const savedTheme = localStorage.getItem('theme') || 'system';
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initialTheme = savedTheme === 'system' ? (prefersDark ? 'dark' : 'light') : savedTheme;
 
-    // Listen for theme toggle button clicks
-    toggleBtn.addEventListener('click', () => {
-      let theme = document.documentElement.getAttribute('data-theme');
-      if (theme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-        toggleBtn.textContent = '🌞';
-      } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-        toggleBtn.textContent = '🌛';
+      htmlElement.setAttribute('data-theme', initialTheme);
+      updateToggleEmoji(initialTheme);
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateToggleEmoji(newTheme);
+      });
+
+      function updateToggleEmoji(theme) {
+        themeToggle.textContent = theme === 'dark' ? '🌙' : '🌞';
       }
-    });
+    })();
   </script>
+
 </body>
 
 </html>
