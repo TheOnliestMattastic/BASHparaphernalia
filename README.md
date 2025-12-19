@@ -14,26 +14,26 @@
 [![Portfolio](https://img.shields.io/badge/Portfolio-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4)](https://theonliestmattastic.github.io/)
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4)](https://github.com/theonliestmattastic)
 
-## 🧭 Table of Contents
+## 💊 Table of Contents
 
-- [🔭 Overview](#-overview)
-- [🗺️ Scripts Included](#️-scripts-included)
+- [🥗 Overview](#-overview)
+- [🍺 Scripts Included](#️-scripts-included)
   - [🐧 $!NEWbara.sh](#-newbarash)
-  - [☁️ $!MTrclone.sh](#️-mountmyclouddrivessh)
+  - [🗻 $!MTrclone.sh](#️-mountmyclouddrivessh)
   - [🌈 $!LOGme.sh](#-myloginscriptsh)
   - [🤖 $!DONtype.sh](#-dontypesh)
-  - [🔤 $!MOOcase.sh](#-changecasesh)
+  - [🐮 $!COWcase.sh](#-changecasesh)
 - [🚀 Getting Started](#-getting-started)
-- [🌕 Notes](#-notes)
+- [🌛 Notes](#-notes)
 - [🛸 License](#-license)
 - [🪐 Recruiter's Note](#-recruiters-note)
 - [👽 Contact](#-contact)
 
-## 🔭 Overview
+## 🥗 Overview
 
 This repository is a collection of Bash scripts I use to automate and streamline my Linux workflow. Each script is self‑contained, documented, and easy to adapt. Think of it as both a personal toolkit and a demonstration of my ability to write practical, maintainable automation.
 
-## 🗺️ Scripts Included
+## 🍺 Scripts Included
 
 ### 🐧 **$!NEWbara.sh**
 
@@ -58,7 +58,7 @@ This repository is a collection of Bash scripts I use to automate and streamline
 
 ---
 
-### ☁️ **$!MTrclone.sh**
+### 🗻 **$!MTrclone.sh**
 
 [![Bash](https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4)](https://www.gnu.org/software/bash/)
 [![Rclone](https://img.shields.io/badge/Cloud-rclone-bd93f9?logo=icloud&logoColor=white&style=for-the-badge&labelColor=6272a4)](https://rclone.org/)
@@ -71,7 +71,7 @@ This repository is a collection of Bash scripts I use to automate and streamline
 
 ---
 
-### 🌈 **$!LOGme.sh**
+### 🌲 **$!LOGme.sh**
 
 [![Bash](https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4)](https://www.gnu.org/software/bash/)
 [![Wezterm](https://img.shields.io/badge/Terminal-Wezterm-bd93f9?style=for-the-badge&labelColor=6272a4)](https://wezfurlong.org/wezterm/)
@@ -116,7 +116,7 @@ This repository is a collection of Bash scripts I use to automate and streamline
 
 ---
 
-### 🌝 **$!MOOcase.sh**
+### 🐮 **$!COWcase.sh**
 
 [![Bash](https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4)](https://www.gnu.org/software/bash/)
 
@@ -177,7 +177,7 @@ Each script includes detailed setup instructions in its README and header commen
 - **$!MTrclone.sh:** Requires `rclone` configured with cloud remotes
 - **$!LOGme.sh:** Requires `wezterm`, `openrgb`, `fortune`, `cowsay`, `bat`, `cbonsai`
 - **$!DONtype.sh:** Requires `xdotool` for automation
-- **$!MOOcase.sh:** No external dependencies (uses built-in tools); optional `cowsay` and `lolcat` for visual feedback
+- **$!COWcase.sh:** No external dependencies (uses built-in tools); optional `cowsay` and `lolcat` for visual feedback
 
 ### Configuration
 
@@ -194,7 +194,7 @@ Most scripts support customization through:
 - Run with at least one file: `./NEWbara.sh -d config/dnf-packages.txt` or `-f config/flatpak-packages.txt`
 - See `scripts/NEWbara/config/README.md` for detailed documentation
 
-## 🌕 Notes
+## 🌛 Notes
 
 ### Compatibility & Customization
 
