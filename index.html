@@ -1,19 +1,40 @@
 <!--
-  REMINDERS:
-  - This is the HTML document that displays the BASHparaphernalia website
-  - Head section contains metadata, styles, and icons (things browsers need to know)
-  - Body section contains the actual visible content
-  - Each section is clearly marked with comments for easy navigation
+  =============================================================================
+  BASHparaphernalia Website (index.html)
+  =============================================================================
+  WHAT: Interactive HTML webpage showcasing the BASHparaphernalia toolkit
+  WHY:  Provides comprehensive project overview with installation guides and
+        detailed script documentation for visitors and recruiters
+  HOW:  Semantic HTML5 structure with theme-aware styling, code blocks, and
+        badge links; JavaScript handles light/dark theme persistence
+  NOTE: Uses external style.css for theming; comments follow WHAT/WHY/HOW/NOTE
+        pattern throughout for clarity and maintainability
+  =============================================================================
 -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <!-- REMINDER: Basic HTML setup - tells browser this is an HTML5 page in English -->
+  <!-- =========================================================================
+       METADATA & BROWSER CONFIGURATION
+       =========================================================================
+       WHAT: HTML document setup and browser metadata
+       WHY:  Ensures proper encoding, responsive design, and browser detection
+       HOW:  Standard HTML5 meta tags and viewport configuration
+  ======================================================================== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BASHparaphernalia: A curated collection of advanced automation scripts for Linux systems with comprehensive documentation and installation guides">
 
-  <!-- REMINDER: Links to the CSS file that makes everything look pretty -->
+  <!-- =========================================================================
+       STYLING & ICONS
+       =========================================================================
+       WHAT: External stylesheet and favicon configuration
+       WHY:  Separates presentation logic and provides consistent theming across
+             all pages; favicons improve brand recognition
+       HOW:  Links to external CSS file and multiple favicon formats for
+             different devices and browsers
+  ======================================================================== -->
   <link rel="stylesheet" href="style.css" />
 
   <!-- Favicon and App Icons -->
@@ -26,310 +47,499 @@
   <meta name="msapplication-TileColor" content="#2b5797">
   <meta name="theme-color" content="#282a36">
 
-  <title>$!BASHparaphernalia</title>
-  <meta name="description" content="A curated collection of automation scripts for Linux systems">
+  <title>$!BASHparaphernalia - Advanced Linux Automation Scripts</title>
 </head>
 
-<!-- REMINDER: Everything below this line is what users actually see on the webpage -->
-
+<!-- =========================================================================
+     BODY CONTENT
+     =========================================================================
+     WHAT: Main visible content of the webpage
+     WHY:  Structured sections provide comprehensive project information
+     HOW:  Semantic HTML5 elements (header, main, footer) with organized
+           project cards, code examples, and navigation
+======================================================================== -->
 <body>
 
-  <!-- HEADER SECTION: Top of page with branding and navigation -->
+  <!-- =========================================================================
+       HEADER SECTION: Branding, Navigation, and Project Metadata
+       =========================================================================
+       WHAT: Top of page with project title, banner, badges, and theme toggle
+       WHY:  Establishes brand identity and provides quick access to key
+             resources and metadata
+       HOW:  Displays banner image, repository stats, and links to GitHub/portfolio
+  ======================================================================== -->
   <header>
 
-    <!-- REMINDER: Theme toggle button - switches between light/dark mode -->
-    <button id="theme-toggle" aria-label="Toggle theme">🌞</button>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" aria-label="Toggle light/dark theme">🌞</button>
 
+    <!-- Project Banner -->
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.png">
       <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.png">
-      <img alt="Banner" src="./assets/banner-light.png">
+      <img alt="BASHparaphernalia Banner" src="./assets/banner-light.png">
     </picture>
 
-    <!-- REMINDER: Main title and subtitle - tells visitors what this website is about -->
+    <!-- Project Title and Subtitle -->
     <h1>$!BASHparaphernalia</h1>
-    <h2>A curated collection of automation scripts for Linux systems</h2>
+    <h2>Advanced automation scripts for Linux system administration and workflow optimization</h2>
 
-    <!-- REMINDER: GitHub stats badges - shows repository info like last commit, size, etc. -->
-    <!-- Project Badges -->
+    <!-- Project Metadata Badges -->
     <div class="buttons">
-      <!-- Last Commit -->
-      <img alt="Last Commit"
-        src="https://img.shields.io/github/last-commit/TheOnliestMattastic/BASHparaphernalia?color=bd93f9&style=for-the-badge&labelColor=6272a4">
-      <!-- Repo Size -->
-      <img alt="Repo Size"
-        src="https://img.shields.io/github/repo-size/TheOnliestMattastic/BASHparaphernalia?color=bd93f9&style=for-the-badge&labelColor=6272a4">
-      <!-- Code Size -->
-      <img alt="Code Size"
-        src="https://img.shields.io/github/languages/code-size/TheOnliestMattastic/BASHparaphernalia?color=bd93f9&style=for-the-badge&labelColor=6272a4">
-      <!-- Source Code-->
-      <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia"><img alt="Source Code"
-          src="https://img.shields.io/badge/GitHub-Code-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4"></a>
-      <!-- License -->
-      <img alt="License GPL-3.0-or-later"
-        src="https://img.shields.io/badge/License-GPL--3.0--or--later-bd93f9?style=for-the-badge&logo=gnu&logoColor=white&labelColor=6272a4">
-      <!-- Portfolio -->
-      <a href="https://theonliestmattastic.github.io/"><img alt="Portfolio"
-          src="https://img.shields.io/badge/Portfolio-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4"></a>
-      <!-- Profile -->
-      <a href="https://github.com/theonliestmattastic"><img alt="GitHub Profile"
-          src="https://img.shields.io/badge/GitHub-Profile-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4"></a>
+      <img alt="Last Commit" src="https://img.shields.io/github/last-commit/TheOnliestMattastic/BASHparaphernalia?color=bd93f9&style=for-the-badge&labelColor=6272a4">
+      <img alt="Repository Size" src="https://img.shields.io/github/repo-size/TheOnliestMattastic/BASHparaphernalia?color=bd93f9&style=for-the-badge&labelColor=6272a4">
+      <img alt="Code Size" src="https://img.shields.io/github/languages/code-size/TheOnliestMattastic/BASHparaphernalia?color=bd93f9&style=for-the-badge&labelColor=6272a4">
+      <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia" target="_blank"><img alt="GitHub Repository" src="https://img.shields.io/badge/GitHub-Repository-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4"></a>
+      <img alt="License: CC BY-SA 4.0" src="https://img.shields.io/badge/License-CC%20BY--SA%204.0-bd93f9?style=for-the-badge&logo=creativecommons&logoColor=white&labelColor=6272a4">
+      <a href="https://theonliestmattastic.github.io/" target="_blank"><img alt="Portfolio Website" src="https://img.shields.io/badge/Portfolio-Visit-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4"></a>
+      <a href="https://github.com/theonliestmattastic" target="_blank"><img alt="GitHub Profile" src="https://img.shields.io/badge/GitHub-Profile-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4"></a>
     </div>
   </header>
 
-
-  <!-- MAIN CONTENT SECTION: Where all the script information is displayed -->
+  <!-- =========================================================================
+       MAIN CONTENT: Project Cards and Documentation
+       =========================================================================
+       WHAT: Comprehensive documentation for each script with examples
+       WHY:  Provides users and recruiters with detailed information about
+             capabilities, installation, and usage patterns
+       HOW:  Structured project cards with descriptions, feature lists, and
+             code examples for each script
+  ======================================================================== -->
   <main>
 
-    <!-- REMINDER: Welcome/intro section - explains what this website is about -->
+    <!-- =====================================================================
+         OVERVIEW CARD: Project Introduction
+         ===================================================================== -->
     <div class="project-card">
       <h2>🔭 Overview</h2>
       <p>
-        Welcome to <strong>$!BASHparaphernalia</strong> — a curated collection of automation scripts I’ve built to make
-        Linux systems smarter, faster, and more fun. Each script solves a real-world problem I encountered, and together
-        they demonstrate my ability to automate workflows, document solutions, and bring personality into technical
-        work.
+        Welcome to <strong>$!BASHparaphernalia</strong> — a professional collection of automation scripts
+        designed to streamline Linux system administration and personal workflows. Each script addresses
+        real-world challenges and demonstrates advanced Bash techniques including configuration management,
+        terminal orchestration, error handling, and user interaction patterns.
+      </p>
+      <p>
+        This toolkit showcases not just automation capabilities, but also clean architecture, professional
+        documentation (using WHAT/WHY/HOW/NOTE patterns), cross-platform compatibility, and attention to
+        user experience.
       </p>
     </div>
 
-
-    <!-- REMINDER: Script card for NEWbara - the advanced system bootstrapper -->
-    <!-- NEWbara -->
+    <!-- =====================================================================
+         NEWbara.sh: System Bootstrap Automation with Configuration Files
+         ===================================================================== -->
     <div class="project-card">
-      <h2>🐧 NEWbara.sh</h2>
+      <h2>🐧 NEWbara.sh - System Bootstrap Automation</h2>
       <p class="buttons card">
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/NEWbara/NEWbara.sh"
-          target="_blank"><img alt="Source Code"
-            src="https://img.shields.io/badge/Code-Source-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/NEWbara/README.md"
-          target="_blank"><img alt="Docs"
-            src="https://img.shields.io/badge/Docs-Readme-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://www.gnu.org/software/bash/" target="_blank"><img alt="Bash"
-            src="https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://docs.fedoraproject.org/en-US/quick-docs/dnf/" target="_blank"><img alt="DNF"
-            src="https://img.shields.io/badge/Package-dnf-bd93f9?logo=fedora&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://flatpak.org/" target="_blank"><img alt="Flatpak"
-            src="https://img.shields.io/badge/Flatpak-Installer-bd93f9?logo=flatpak&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://snapcraft.io/" target="_blank"><img alt="Snap"
-            src="https://img.shields.io/badge/Snap-Packages-bd93f9?logo=snapcraft&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/NEWbara/NEWbara.sh" target="_blank"><img alt="View Source Code" src="https://img.shields.io/badge/Code-View-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/tree/main/scripts/NEWbara" target="_blank"><img alt="Full Documentation" src="https://img.shields.io/badge/Docs-Directory-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://www.gnu.org/software/bash/" target="_blank"><img alt="Bash Shell" src="https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://docs.fedoraproject.org/en-US/quick-docs/dnf/" target="_blank"><img alt="DNF Package Manager" src="https://img.shields.io/badge/Package-dnf-bd93f9?logo=fedora&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://flatpak.org/" target="_blank"><img alt="Flatpak Application Platform" src="https://img.shields.io/badge/Flatpak-Apps-bd93f9?logo=flatpak&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
       </p>
-      <p><strong>Purpose:</strong> Comprehensive system bootstrapper for Nobara/Fedora with multi-package manager
-        support and advanced features.</p>
+
+      <p><strong>Purpose:</strong> Comprehensive Nobara/Fedora system bootstrapper with configuration-driven package management, automatic visual feedback, and safety-first design.</p>
+
+      <h3>Key Features</h3>
       <ul>
-        <li><strong>Multi-Package Manager:</strong> Installs via DNF, Flatpak, and Snap with user/system Flatpak modes.
-        </li>
-        <li><strong>Custom Package Lists:</strong> Load packages from text files for DNF, Flatpak, and Snap.</li>
-        <li><strong>Dry Run Mode:</strong> Preview installations without making changes.</li>
-        <li><strong>Automatic Logging:</strong> Logs all output to timestamped files for troubleshooting.</li>
-        <li><strong>Smart Cleanup:</strong> Removes orphaned packages and unused runtimes post-installation.</li>
+        <li><strong>Configuration-Driven Installation:</strong> Requires explicit package file input (−d or −f) preventing accidental installations</li>
+        <li><strong>External Package Lists:</strong> Load DNF packages and Flatpak apps from separate config files for reusability</li>
+        <li><strong>Automatic Visual Dependencies:</strong> Auto-installs cowsay/lolcat early for guaranteed colorful feedback throughout execution</li>
+        <li><strong>Dry-Run Safety:</strong> Preview installations without making changes; cleanup operations skipped during dry-runs</li>
+        <li><strong>Multi-Package Manager:</strong> Seamless DNF and Flatpak integration with user/system installation modes</li>
+        <li><strong>Timestamped Logging:</strong> All output logged for troubleshooting and audit trails</li>
+        <li><strong>Smart Cleanup:</strong> Removes orphaned packages and unused Flatpak runtimes post-installation</li>
       </ul>
+
+      <h3>Installation & Setup</h3>
+      <pre class="code"><code>cd BASHparaphernalia/scripts/NEWbara
+chmod +x NEWbara.sh
+
+# Install from configuration file (required)
+./NEWbara.sh -d config/dnf-packages.txt
+
+# Install from Flatpak apps configuration
+./NEWbara.sh -f config/flatpak-packages.txt
+
+# Install both with system-wide Flatpaks
+./NEWbara.sh -d config/dnf-packages.txt -f config/flatpak-packages.txt -S
+
+# Preview without installing (dry-run)
+./NEWbara.sh -d config/dnf-packages.txt -n</code></pre>
+
+      <h3>Configuration Files</h3>
+      <p>Create custom package lists in plain text format (one per line):</p>
+      <pre class="code"><code># config/my-dnf-packages.txt
+neovim
+git
+python3
+
+# config/my-flatpak-apps.txt
+org.videolan.VLC
+md.obsidian.Obsidian
+org.kde.krita</code></pre>
+
+      <p><strong>Dependencies:</strong> dnf, flatpak, sudo (cowsay/lolcat auto-installed)</p>
+      <p><strong>Note:</strong> cowsay and lolcat can be safely uninstalled after running: <code>sudo dnf remove cowsay lolcat</code></p>
     </div>
 
-
-    <!-- REMINDER: Script card for MTrclone - mounts cloud storage locally -->
-    <!-- MTrclone -->
+    <!-- =====================================================================
+         MTrclone.sh: Cloud Storage Mount Automation
+         ===================================================================== -->
     <div class="project-card">
-      <h2>☁️ MTrclone.sh</h2>
+      <h2>☁️ MTrclone.sh - Cloud Storage Mount Automation</h2>
       <p class="buttons card">
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/MTrclone/MTrclone.sh"
-          target="_blank"><img alt="Source Code"
-            src="https://img.shields.io/badge/Code-Source-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/MTrclone/README.md"
-          target="_blank"><img alt="Docs"
-            src="https://img.shields.io/badge/Docs-Readme-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://www.gnu.org/software/bash/" target="_blank"><img alt="Bash"
-            src="https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://rclone.org/" target="_blank"><img alt="rclone"
-            src="https://img.shields.io/badge/Cloud-rclone-bd93f9?logo=icloud&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://github.com/nickg/xcowsay" target="_blank"><img alt="xcowsay"
-            src="https://img.shields.io/badge/Fun-xcowsay-bd93f9?style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/MTrclone/MTrclone.sh" target="_blank"><img alt="View Source Code" src="https://img.shields.io/badge/Code-View-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/tree/main/scripts/MTrclone" target="_blank"><img alt="Full Documentation" src="https://img.shields.io/badge/Docs-Directory-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://www.gnu.org/software/bash/" target="_blank"><img alt="Bash Shell" src="https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://rclone.org/" target="_blank"><img alt="Rclone Cloud Tool" src="https://img.shields.io/badge/Cloud-rclone-bd93f9?logo=icloud&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
       </p>
-      <p><strong>Purpose:</strong> Mounts multiple cloud storage accounts locally with enhanced reliability.</p>
+
+      <p><strong>Purpose:</strong> Automates mounting multiple cloud storage accounts (OneDrive, Google Drive, Dropbox) locally with robust error handling and verification.</p>
+
+      <h3>Key Features</h3>
       <ul>
-        <li>Creates local directories for OneDrive, Google Drive, and Dropbox with error checking.</li>
-        <li>Mounts each remote using <code>rclone</code> with caching and automatic verification.</li>
-        <li>Provides real-time progress feedback and robust error handling.</li>
-        <li>Reports success/failure via themed notifications with detailed status.</li>
+        <li><strong>Multi-Account Support:</strong> Mount OneDrive, Google Drive, and Dropbox simultaneously</li>
+        <li><strong>Directory Creation:</strong> Automatically creates local mount points with proper structure</li>
+        <li><strong>Rclone Integration:</strong> Configures caching and mount options for optimal performance</li>
+        <li><strong>Mount Verification:</strong> Validates successful mounts using findmnt with detailed reporting</li>
+        <li><strong>Error Recovery:</strong> Continues execution despite individual mount failures</li>
+        <li><strong>Real-Time Feedback:</strong> Progress indicators during mounting operations</li>
       </ul>
+
+      <h3>Installation & Setup</h3>
+      <pre class="code"><code"># Prerequisites: Install and configure rclone with cloud remotes
+rclone config
+
+# Make executable and run
+cd BASHparaphernalia/scripts/MTrclone
+chmod +x MTrclone.sh
+./MTrclone.sh</code></pre>
+
+      <p><strong>Dependencies:</strong> rclone (configured with cloud remotes)</p>
     </div>
 
-
-    <!-- REMINDER: Script card for LOGme - runs at login for RGB lighting and greetings -->
-    <!-- LOGme -->
+    <!-- =====================================================================
+         LOGme.sh: Terminal-Based Login Enhancement with Wezterm
+         ===================================================================== -->
     <div class="project-card">
-      <h2>🌈 LOGme.sh</h2>
+      <h2>🌈 LOGme.sh - Terminal-Based Login Enhancement</h2>
       <p class="buttons card">
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/LOGme/LOGme.sh"
-          target="_blank"><img alt="Source Code"
-            src="https://img.shields.io/badge/Code-Source-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/LOGme/README.md"
-          target="_blank"><img alt="Docs"
-            src="https://img.shields.io/badge/Docs-Readme-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://www.gnu.org/software/bash/" target="_blank"><img alt="Bash"
-            src="https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://openrgb.org/" target="_blank"><img alt="OpenRGB"
-            src="https://img.shields.io/badge/RGB-OpenRGB-bd93f9?style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://github.com/nickg/xcowsay" target="_blank"><img alt="xcowsay"
-            src="https://img.shields.io/badge/Fun-xcowsay-bd93f9?style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/LOGme/LOGme.sh" target="_blank"><img alt="View Source Code" src="https://img.shields.io/badge/Code-View-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/tree/main/scripts/LOGme" target="_blank"><img alt="Full Documentation" src="https://img.shields.io/badge/Docs-Directory-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://www.gnu.org/software/bash/" target="_blank"><img alt="Bash Shell" src="https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://wezfurlong.org/wezterm/" target="_blank"><img alt="Wezterm Terminal" src="https://img.shields.io/badge/Terminal-Wezterm-bd93f9?style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://openrgb.org/" target="_blank"><img alt="OpenRGB Lighting" src="https://img.shields.io/badge/RGB-OpenRGB-bd93f9?style=for-the-badge&labelColor=6272a4"></a>
       </p>
-      <p><strong>Purpose:</strong> Enhances login experience with RGB setup and interactive fortune display.</p>
+
+      <p><strong>Purpose:</strong> Sophisticated login enhancement using wezterm split-pane orchestration to display RGB setup, system visualization, fortune messages, and task logging concurrently.</p>
+
+      <h3>Key Features</h3>
       <ul>
-        <li>Automatic OpenRGB profile loading for consistent RGB lighting setup.</li>
-        <li>Interactive fortune display using cow-themed bubbles for entertainment.</li>
-        <li>Smart autostart detection and setup with user prompts (only when needed).</li>
-        <li>Cross-desktop autostart support (KDE Plasma and GNOME compatible).</li>
-        <li>Comprehensive dependency validation and graceful error handling.</li>
+        <li><strong>Split-Pane Terminal Display:</strong> Left pane shows OpenRGB setup then cbonsai animation; right pane displays fortune with syntax highlighting then runs MTrclone</li>
+        <li><strong>Wezterm Orchestration:</strong> Advanced terminal control for concurrent visual feedback</li>
+        <li><strong>OpenRGB Integration:</strong> Automatic RGB profile loading for ambient lighting control</li>
+        <li><strong>System Visualization:</strong> Bonsai tree animation provides engaging visual feedback during initialization</li>
+        <li><strong>Fortune Display:</strong> Random quotes with cowsay ASCII art, syntax-highlighted via bat</li>
+        <li><strong>Task Logging:</strong> Visible execution of additional startup scripts (MTrclone.sh)</li>
+        <li><strong>Smart Autostart:</strong> Detects existing configuration; prompts for setup only when needed</li>
+        <li><strong>Cross-Desktop:</strong> Works with both KDE Plasma and GNOME (.desktop file autostart)</li>
+        <li><strong>Graceful Error Handling:</strong> Continues execution despite individual component failures</li>
       </ul>
+
+      <h3>Installation & Setup</h3>
+      <pre class="code"><code># Install dependencies (Fedora/Nobara)
+sudo dnf install wezterm openrgb fortune cowsay bat cbonsai
+
+# Make executable and run
+cd BASHparaphernalia/scripts/LOGme
+chmod +x LOGme.sh
+./LOGme.sh
+
+# Script will prompt to set up autostart if not already configured</code></pre>
+
+      <p><strong>Dependencies:</strong> wezterm, openrgb, fortune, cowsay, bat, cbonsai</p>
+      <p><strong>Notes:</strong> Requires OpenRGB to be configured with a profile named "Home"; runs automatically at login via .desktop file in ~/.config/autostart/</p>
     </div>
 
-
-    <!-- REMINDER: Script card for DONtype - automates in-game keybindings for Schedule I -->
-    <!-- DONtype -->
+    <!-- =====================================================================
+         DONtype.sh: In-Game Keybinding Automation
+         ===================================================================== -->
     <div class="project-card">
-      <h2>🤖 DONtype.sh</h2>
+      <h2>🤖 DONtype.sh - In-Game Keybinding Automation</h2>
       <p class="buttons card">
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/DONtype/DONtype.sh"
-          target="_blank"><img alt="Source Code"
-            src="https://img.shields.io/badge/Code-Source-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/DONtype/README.md"
-          target="_blank"><img alt="Docs"
-            src="https://img.shields.io/badge/Docs-Readme-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://www.gnu.org/software/bash/" target="_blank"><img alt="Bash"
-            src="https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://github.com/jordansissel/xdotool" target="_blank"><img alt="xdotool"
-            src="https://img.shields.io/badge/Automation-xdotool-bd93f9?style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/DONtype/DONtype.sh" target="_blank"><img alt="View Source Code" src="https://img.shields.io/badge/Code-View-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/tree/main/scripts/DONtype" target="_blank"><img alt="Full Documentation" src="https://img.shields.io/badge/Docs-Directory-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://www.gnu.org/software/bash/" target="_blank"><img alt="Bash Shell" src="https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://github.com/jordansissel/xdotool" target="_blank"><img alt="xdotool Automation" src="https://img.shields.io/badge/Automation-xdotool-bd93f9?style=for-the-badge&labelColor=6272a4"></a>
       </p>
-      <p><strong>Purpose:</strong> Automates in-game keybinding setup for <em>Schedule I</em> with enhanced reliability.
-      </p>
+
+      <p><strong>Purpose:</strong> Automates in-game keybinding setup for Schedule I using xdotool with enhanced reliability and user feedback.</p>
+
+      <h3>Key Features</h3>
       <ul>
-        <li>Uses <code>xdotool</code> to bind teleport and utility commands to function keys (F1–F12).</li>
-        <li>Features dependency validation, real-time progress feedback, and error recovery.</li>
-        <li>Robust execution with countdown timer and detailed error reporting.</li>
-        <li>Completes setup in ~20 seconds with built-in error handling and user feedback.</li>
+        <li><strong>Function Key Binding:</strong> Maps teleport locations and utility commands to F1–F12</li>
+        <li><strong>Fast Setup:</strong> Completes configuration in approximately 20 seconds</li>
+        <li><strong>Real-Time Feedback:</strong> Countdown timer and progress indicators</li>
+        <li><strong>Error Recovery:</strong> Continues despite individual binding failures</li>
+        <li><strong>Dependency Validation:</strong> Checks for xdotool availability with helpful error messages</li>
+        <li><strong>Robust Execution:</strong> Comprehensive error handling with detailed status reporting</li>
       </ul>
+
+      <h3>Installation & Setup</h3>
+      <pre class="code"><code># Install xdotool
+sudo dnf install xdotool
+
+# Make executable and run before launching game
+cd BASHparaphernalia/scripts/DONtype
+chmod +x DONtype.sh
+./DONtype.sh</code></pre>
+
+      <p><strong>Dependencies:</strong> xdotool, X11 display server</p>
+      <p><strong>Usage:</strong> Run before launching Schedule I for automated keybinding configuration</p>
     </div>
 
-
-    <!-- REMINDER: Script card for MOOcase - renames files/directories by changing first character case -->
-    <!-- MOOcase -->
+    <!-- =====================================================================
+         MOOcase.sh: Batch File/Directory Case Conversion
+         ===================================================================== -->
     <div class="project-card">
-      <h2>🔄 MOOcase.sh</h2>
+      <h2>🔄 MOOcase.sh - Batch File/Directory Case Conversion</h2>
       <p class="buttons card">
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/MOOcase/MOOcase.sh"
-          target="_blank"><img alt="Source Code"
-            src="https://img.shields.io/badge/Code-Source-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/MOOcase/README.md"
-          target="_blank"><img alt="Docs"
-            src="https://img.shields.io/badge/Docs-Readme-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-        <a href="https://www.gnu.org/software/bash/" target="_blank"><img alt="Bash"
-            src="https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/MOOcase/MOOcase.sh" target="_blank"><img alt="View Source Code" src="https://img.shields.io/badge/Code-View-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/tree/main/scripts/MOOcase" target="_blank"><img alt="Full Documentation" src="https://img.shields.io/badge/Docs-Directory-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+        <a href="https://www.gnu.org/software/bash/" target="_blank"><img alt="Bash Shell" src="https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
       </p>
-      <p><strong>Purpose:</strong> Batch rename directories and files by converting first character to upper or
-        lowercase.</p>
+
+      <p><strong>Purpose:</strong> Standardizes file and directory naming by batch converting first character case with flexible filtering and optional visual feedback.</p>
+
+      <h3>Key Features</h3>
       <ul>
-        <li>Case conversion modes (lowercase default, uppercase with <code>-u</code> option).</li>
-        <li>Selective processing (directories only with <code>-d</code>, files only with <code>-f</code>).</li>
-        <li>Custom path targeting with <code>-p</code> option and visual feedback.</li>
-        <li>Comprehensive error handling and logging with cow-themed messages.</li>
-        <li>Safe operation that only renames when changes are needed.</li>
+        <li><strong>Case Conversion Modes:</strong> Lowercase by default; uppercase with −u flag</li>
+        <li><strong>Selective Processing:</strong> Process directories only (−d), files only (−f), or both</li>
+        <li><strong>Custom Path Targeting:</strong> Specify target directory with −p flag (defaults to current directory)</li>
+        <li><strong>Safe Renaming:</strong> Only renames items when new name differs from original</li>
+        <li><strong>Visual Feedback:</strong> Cowsay/lolcat messages when available (graceful fallback)</li>
+        <li><strong>Comprehensive Logging:</strong> Detailed output of all rename operations</li>
+        <li><strong>Error Handling:</strong> Robust recovery with clear error messages</li>
       </ul>
+
+      <h3>Installation & Setup</h3>
+      <pre class="code"><code"># No dependencies required (optional cowsay/lolcat for visual feedback)
+cd BASHparaphernalia/scripts/MOOcase
+chmod +x MOOcase.sh
+
+# Convert files to lowercase in current directory
+./MOOcase.sh
+
+# Convert directories only to uppercase
+./MOOcase.sh -u -d
+
+# Convert files in specific directory to lowercase
+./MOOcase.sh -p /path/to/directory -f</code></pre>
+
+      <p><strong>Dependencies:</strong> None required (optional: cowsay, lolcat for enhanced feedback)</p>
     </div>
 
-
-    <!-- REMINDER: Instructions section - how to download and use the scripts -->
-    <!-- Getting Started -->
+    <!-- =====================================================================
+         GETTING STARTED: Installation and Configuration Instructions
+         ===================================================================== -->
     <div class="project-card">
       <h2>🚀 Getting Started</h2>
-      <ol>
-        <li>Clone the repository:</li>
-        <p>
-        <pre class="code"><code>git clone https://github.com/TheOnliestMattastic/BASHparaphernalia.git
-cd BASHparaphernalia</code></pre>
-        </p>
-        <li>Make a script executable:</li>
-        <p>
-        <pre class="code"><code>chmod +x script-name.sh</code></pre>
-        </p>
-        <li>Run it:</li>
-        <p>
-        <pre class="code"><code>./script-name.sh</code></pre>
-        </p>
-      </ol>
-      <p><em>Note: See each script’s header for specific dependencies.</em></p>
+
+      <h3>Prerequisites</h3>
+      <ul>
+        <li>Linux system (tested on Nobara/Fedora; adaptable to other distributions)</li>
+        <li>Bash shell (standard on most Linux distributions)</li>
+        <li>Git (for cloning the repository)</li>
+        <li>Sudo access (for system-level operations)</li>
+      </ul>
+
+      <h3>Quick Installation</h3>
+      <pre class="code"><code># Clone the repository
+git clone https://github.com/TheOnliestMattastic/BASHparaphernalia.git
+cd BASHparaphernalia
+
+# Make all scripts executable
+chmod +x scripts/*/*.sh
+
+# Or make individual scripts executable
+chmod +x scripts/NEWbara/NEWbara.sh
+chmod +x scripts/LOGme/LOGme.sh
+# ... etc</code></pre>
+
+      <h3>Run Individual Scripts</h3>
+      <pre class="code"><code"># NEWbara system bootstrap
+./scripts/NEWbara/NEWbara.sh -d scripts/NEWbara/config/dnf-packages.txt
+
+# LOGme login enhancement
+./scripts/LOGme/LOGme.sh
+
+# MTrclone cloud mounts
+./scripts/MTrclone/MTrclone.sh
+
+# DONtype game setup
+./scripts/DONtype/DONtype.sh
+
+# MOOcase batch rename
+./scripts/MOOcase/MOOcase.sh -h</code></pre>
+
+      <h3>Script-Specific Requirements</h3>
+      <ul>
+        <li><strong>NEWbara.sh:</strong> Requires dnf, flatpak, sudo access, and at least one package configuration file (−d or −f)</li>
+        <li><strong>LOGme.sh:</strong> Requires wezterm, openrgb, fortune, cowsay, bat, cbonsai</li>
+        <li><strong>MTrclone.sh:</strong> Requires rclone configured with cloud account remotes</li>
+        <li><strong>DONtype.sh:</strong> Requires xdotool and X11 display server</li>
+        <li><strong>MOOcase.sh:</strong> No dependencies (optional cowsay/lolcat for visual feedback)</li>
+      </ul>
+
+      <p><strong>Note:</strong> Each script includes help documentation: run with <code>--help</code> or <code>-h</code> flags for detailed options.</p>
     </div>
 
+    <!-- =====================================================================
+         DOCUMENTATION: Project Architecture and Standards
+         ===================================================================== -->
+    <div class="project-card">
+      <h2>📚 Documentation Standards</h2>
 
-    <!-- REMINDER: License information - project is open source -->
-    <!-- License -->
+      <h3>Code Comments</h3>
+      <p>All scripts follow professional WHAT/WHY/HOW/NOTE comment patterns:</p>
+      <ul>
+        <li><strong>WHAT:</strong> Description of what the section does</li>
+        <li><strong>WHY:</strong> Explanation of why it's needed or designed this way</li>
+        <li><strong>HOW:</strong> Technical explanation of implementation details</li>
+        <li><strong>NOTE:</strong> Optional gotchas, alternatives, or important reminders</li>
+      </ul>
+
+      <h3>Configuration Files</h3>
+      <p>Scripts use external configuration files for flexibility:</p>
+      <ul>
+        <li>NEWbara.sh: <code>config/dnf-packages.txt</code> and <code>config/flatpak-packages.txt</code></li>
+        <li>Create custom configurations for team standardization and version control</li>
+        <li>Plain text format (one package/app ID per line) for easy editing</li>
+      </ul>
+
+      <h3>License</h3>
+      <p>All scripts are distributed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License (CC-BY-SA-4.0)</a>.</p>
+      <p>You are free to use, modify, and distribute these scripts as long as you provide attribution and apply the same license to derivative works.</p>
+    </div>
+
+    <!-- =====================================================================
+         RECRUITER'S NOTE: Portfolio Context and Skill Demonstration
+         ===================================================================== -->
+    <div class="project-card">
+      <h2>🪐 Recruiter's Note</h2>
+      <p>
+        This project demonstrates not just automation capabilities, but a complete professional development approach. Each script evolved from solving real-world challenges and showcases:
+      </p>
+
+      <h3>Technical Skills Demonstrated</h3>
+      <ul>
+        <li><strong>Advanced Bash Scripting:</strong> Error handling, logging, user interaction, configuration management, and process control</li>
+        <li><strong>Linux System Administration:</strong> Package management (DNF, Flatpak), service configuration, terminal orchestration, system automation</li>
+        <li><strong>Software Architecture:</strong> External configuration files, modular design, conditional execution, graceful error recovery</li>
+        <li><strong>Cross-Tool Integration:</strong> Coordinating multiple utilities (rclone, OpenRGB, wezterm, xdotool) into cohesive workflows</li>
+        <li><strong>Professional Documentation:</strong> WHAT/WHY/HOW/NOTE comment patterns, comprehensive READMEs, user-friendly interfaces</li>
+        <li><strong>Configuration Design:</strong> External configuration files for flexibility, supporting both individual and team use cases</li>
+      </ul>
+
+      <h3>Professional Qualities</h3>
+      <ul>
+        <li><strong>Self-Directed Learning:</strong> Researching and implementing complex tools independently</li>
+        <li><strong>Attention to Detail:</strong> Comprehensive error handling, validation, and safety-first design</li>
+        <li><strong>User Experience:</strong> Creating scripts that are both powerful and accessible</li>
+        <li><strong>Maintainability:</strong> Clean architecture, professional documentation, and modular design</li>
+        <li><strong>Problem-Solving:</strong> Identifying repetitive tasks and creating maintainable automated solutions</li>
+      </ul>
+
+      <h3>Development Approach</h3>
+      <ul>
+        <li><strong>Iterative Improvement:</strong> Scripts evolved from simple solutions to robust, feature-rich tools</li>
+        <li><strong>Testing & Debugging:</strong> Real-world usage leading to improved error handling and reliability</li>
+        <li><strong>Version Control:</strong> Proper Git usage with meaningful conventional commits and clear repository organization</li>
+        <li><strong>User-Centered Design:</strong> Help systems, validation checks, clear feedback, and graceful degradation</li>
+      </ul>
+
+      <p>
+        This toolkit reflects the methodical, user-focused approach I bring to IT support, system administration,
+        and software development roles: resourceful, detail-oriented, and committed to creating solutions that
+        work reliably in production environments.
+      </p>
+    </div>
+
+    <!-- =====================================================================
+         LICENSE INFORMATION: Open Source License Details
+         ===================================================================== -->
     <div class="project-card">
       <h2>🛸 License</h2>
-      <p>Distributed under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License v3.0</a>.
-      </p>
-    </div>
-
-
-    <!-- REMINDER: Professional note for recruiters/hiring managers -->
-    <!-- Recruiter Note -->
-    <div class="project-card">
-      <h2>🪐 Recruiter’s Note</h2>
       <p>
-        This project isn’t a polished product — it’s a showcase of how I solve problems with code.
-        Each script began as a solution to a real need, and together they demonstrate:
+        This project is distributed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License (CC-BY-SA-4.0)</a>.
+      </p>
+      <p>
+        <strong>What this means:</strong> You are free to use, modify, and distribute these scripts for any purpose,
+        provided you:
       </p>
       <ul>
-        <li>Practical Bash scripting and Linux administration skills</li>
-        <li>The ability to automate repetitive tasks into efficient workflows</li>
-        <li>Clear documentation and maintainable code practices</li>
+        <li>Provide attribution to the original author</li>
+        <li>Apply the same CC-BY-SA-4.0 license to any derivative works</li>
+        <li>Include a copy of the license with your distribution</li>
       </ul>
       <p>
-        If you’re evaluating me as a candidate, this toolkit reflects the same mindset I bring to IT support and system
-        administration roles:
-        resourceful, adaptable, and focused on making technology work smarter.
+        This more permissive license encourages collaboration and broader community use while maintaining
+        the original contribution's visibility and ensuring improvements benefit everyone.
       </p>
     </div>
 
-
-    <!-- REMINDER: Contact information and links to social/professional profiles -->
-    <!-- Contact -->
+    <!-- =====================================================================
+         CONTACT: Professional and Social Links
+         ===================================================================== -->
     <div class="project-card">
-      <h2>👽 Contact!</h2>
+      <h2>👽 Get In Touch</h2>
       <p>
-        Curious about my projects? Want to collaborate or hire for entry-level IT/support/dev roles? Shoot me an email
-        or connect on GitHub—I reply quickly and love new challenges.
+        Curious about my projects? Want to collaborate, discuss ideas, or explore opportunities for
+        entry-level IT/support/dev roles? I respond quickly and love working on meaningful challenges.
       </p>
       <div class="buttons card">
-        <!-- Portfolio -->
-        <a href="https://theonliestmattastic.github.io/"><img alt="Portfolio"
-            src="https://img.shields.io/badge/Portfolio-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4"></a>
-        <!-- Profile -->
-        <a href="https://github.com/theonliestmattastic"><img alt="GitHub Profile"
-            src="https://img.shields.io/badge/GitHub-Profile-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4"></a>
-        <!-- Email-->
-        <a href="mailto:matthew.poole485@gmail.com" target="_blank"><img alt="Email"
-            src="https://img.shields.io/badge/Email-matthew.poole485%40gmail.com-bd93f9?style=for-the-badge&logo=gmail&logoColor=white&labelColor=6272a4"></a>
+        <a href="https://theonliestmattastic.github.io/" target="_blank"><img alt="Visit Portfolio" src="https://img.shields.io/badge/Portfolio-Visit-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4"></a>
+        <a href="https://github.com/theonliestmattastic" target="_blank"><img alt="GitHub Profile" src="https://img.shields.io/badge/GitHub-Profile-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4"></a>
+        <a href="mailto:matthew.poole485@gmail.com"><img alt="Email: matthew.poole485@gmail.com" src="https://img.shields.io/badge/Email-matthew.poole485%40gmail.com-bd93f9?style=for-the-badge&logo=gmail&logoColor=white&labelColor=6272a4"></a>
       </div>
     </div>
 
   </main>
 
-
-  <!-- REMINDER: Footer with inspirational quote -->
+  <!-- =========================================================================
+       FOOTER: Inspirational Quote and Copyright Information
+       =========================================================================
+       WHAT: Bottom of page with quote and closing message
+       WHY:  Provides inspirational context and maintains professional tone
+       HOW:  Simple footer element with styled quote
+  ======================================================================== -->
   <footer>
     <p><q><em>Sometimes the questions are complicated and the answers are simple.</em></q> — Dr. Seuss</p>
   </footer>
 
-
-  <!-- REMINDER: JavaScript for theme switching functionality -->
+  <!-- =========================================================================
+       JAVASCRIPT: Theme Toggle and Persistence
+       =========================================================================
+       WHAT: Client-side script for light/dark theme switching
+       WHY:  Improves user experience with theme preference persistence
+       HOW:  Detects user preference, saves to localStorage, updates on toggle
+       NOTE: Complements CSS variables defined in style.css for theming
+  ======================================================================== -->
   <script>
-    // REMINDER: Get the theme toggle button element
+    // WHAT: Theme toggle functionality with localStorage persistence
+    // WHY:  Respects user theme preference across page visits
+    // HOW:  Stores selection in localStorage and updates DOM attribute
     const toggleBtn = document.getElementById('theme-toggle');
-    // REMINDER: Check if user previously chose a theme and restore it
     const currentTheme = localStorage.getItem('theme');
+
+    // Restore previously selected theme
     if (currentTheme) {
       document.documentElement.setAttribute('data-theme', currentTheme);
       toggleBtn.textContent = currentTheme === 'dark' ? '🌛' : '🌞';
     }
-    // REMINDER: Listen for button clicks to switch themes
+
+    // Listen for theme toggle button clicks
     toggleBtn.addEventListener('click', () => {
       let theme = document.documentElement.getAttribute('data-theme');
       if (theme === 'dark') {
