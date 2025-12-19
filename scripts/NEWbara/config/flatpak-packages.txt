@@ -1,0 +1,10 @@
+md.obsidian.Obsidian
+io.github.nokse22.asciidraw
+org.videolan.VLC
+org.kde.krita
+org.godotengine.Godot
+org.libretro.RetroArch
+eu.betterbird.Betterbird
+org.bleachbit.BleachBit
+org.keepassxc.KeePassXC
+com.spotify.Client
