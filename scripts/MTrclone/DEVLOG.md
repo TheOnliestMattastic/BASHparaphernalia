@@ -86,17 +86,43 @@ This document chronicles the development history of the `mountMyCloudDrives.sh` 
 - Updated main repository documentation
 - Final naming and organizational consistency
 
-## Current Status (2025-10-29)
+## 2025-12-19: Comment Refactoring and License Change
 
-The `mountMyCloudDrives.sh` script is now a mature, production-ready cloud storage mounting utility featuring:
+**Changes:**
+- **Refactored all inline comments** to follow WHAT/WHY/HOW/NOTE standards with section headers
+- **Replaced prescriptive comments** with concise, action-oriented descriptions
+- **Organized code sections** with clear visual delimiters for maintainability
+- **Simplified multiline operations** (consolidated mkdir calls)
+- **Changed license from GPL-3.0 to CC-BY-SA-4.0** (Creative Commons Attribution-ShareAlike 4.0)
+- **Updated README.md** license badge and reference links
+
+**Comment Structure Improvements:**
+- Removed redundant reminder-style comments
+- Added section headers for Dependency Checking, Cleanup Handler, Mount Point Configuration, Cloud Service Mounting, Mount Verification, and Status Notification
+- Focused comments on intent (WHAT/WHY) rather than process explanation
+- Made all comments concise and professional
+
+**Code Optimization:**
+- Consolidated three separate `mkdir -p` calls into single command
+- Improved code readability without losing functionality
+
+**License Change Rationale:**
+- Aligned with broader project licensing strategy across all scripts
+- More flexible attribution-based license for broader collaboration
+- Maintains attribution and share-alike requirements
+
+## Current Status (2025-12-19)
+
+The `MTrclone.sh` script is now a mature, production-ready cloud storage mounting utility featuring:
 
 - **Robust Dependency Management:** Validates all required tools before execution
 - **Process Safety:** Comprehensive cleanup mechanisms prevent zombie processes
 - **Error Recovery:** Graceful handling of mount failures with detailed reporting
-- **User Feedback:** Visual notifications via xcowsay for success/failure states
+- **User Feedback:** Visual notifications via cowsay for success/failure states
 - **Concurrent Operations:** Background mounting of multiple cloud services
 - **Mount Verification:** Automated verification using `findmnt` command
 - **Flexible Configuration:** Easy customization of mount points and services
+- **Professional Documentation:** WHAT/WHY/HOW standards with Creative Commons licensing
 
 ## Technical Architecture
 
@@ -107,5 +133,6 @@ The script demonstrates the evolution from basic automation to enterprise-grade 
 - **Dependency Injection:** Runtime validation of system requirements
 - **Error Propagation:** Comprehensive error detection and reporting
 - **User Communication:** Visual feedback system for operational transparency
+- **Code Standards:** Consistent comment structure following WHAT/WHY/HOW patterns
 
-The development journey showcases the transformation of a simple utility into a reliable, maintainable system administration tool suitable for production environments.
+The development journey showcases the transformation of a simple utility into a reliable, maintainable, professionally-documented system administration tool suitable for production environments.

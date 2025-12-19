@@ -65,7 +65,7 @@ This document chronicles the development history of the `NEWbara.sh` script, fro
 - **New Name:** `installFlatpakAndDnf.sh` → `NEWbara.sh`
 - **Moved:** To `scripts/NEWbara/` directory
 - **Major Features Added:**
-  - Multi-package manager support (DNF, Flatpak, Snap)
+  - Multi-package manager support (DNF, Flatpak)
   - Custom package list loading from text files
   - Dry-run mode for safe testing
   - User/system Flatpak installation modes
@@ -76,6 +76,7 @@ This document chronicles the development history of the `NEWbara.sh` script, fro
   - Advanced error handling with traps
   - Dependency validation
   - Progress tracking and user feedback
+  - Cowsay/lolcat visual feedback system
 
 ## 2025-10-27: Enhanced Visual Feedback System
 
@@ -116,15 +117,88 @@ This document chronicles the development history of the `NEWbara.sh` script, fro
 - **Professional Documentation:** Added badges and enhanced README structure
 - **Standards Compliance:** Aligned with repository-wide documentation conventions
 
-## Current Status (2025-10-29)
+## 2025-12-19: Comment Standardization and License Migration
+
+**Changes:**
+- **Refactored all inline comments** to follow WHAT/WHY/HOW/NOTE standards with section headers
+- **Reorganized comment structure** with clear visual delimiters using dashes and equals
+- **Removed prescriptive comments** that explained implementation details
+- **Simplified code sections** by removing redundant explanations
+- **Changed license from GPL-3.0 to CC-BY-SA-4.0** (Creative Commons Attribution-ShareAlike 4.0)
+- **Updated README.md** license badge and reference links
+
+**Comment Structure Improvements:**
+- Replaced ad-hoc dashed comments with professional section headers
+- Added WHAT/WHY/HOW patterns to all major code blocks:
+  - Dependency Checking
+  - Help Functions
+  - Command-Line Options
+  - Logging Setup
+  - Package Lists Configuration
+  - Custom Package List Loading
+  - Message Display Function
+  - Sudo Verification
+  - DNF/Flatpak/Snap Installation sections
+  - Flatpak Repository Setup
+  - System Cleanup
+  - **Note:** Original 2025-10-27 featured Snap support; removed in 2025-12-19 consolidation
+  - Removed inline tactical comments that merely explained what the code was doing
+- Made all comments strategic and purpose-driven
+- Removed Snap references (tool not used in final configuration)
+
+**Code Quality Improvements:**
+- Improved indentation consistency throughout moo function
+- Enhanced readability of conditional blocks
+- Maintained all existing functionality while improving documentation
+
+**License Change Rationale:**
+- Aligned with broader project licensing strategy across all scripts
+- More flexible attribution-based license for broader collaboration
+- Maintains attribution and share-alike requirements
+
+## 2025-12-19: Configuration Externalization, Mandatory File Input & Snap Removal
+
+**What I Did:**
+- Extracted hardcoded DNF_PKGS and FLAT_PKGS arrays into separate configuration files
+- Created `config/dnf-packages.txt` and `config/flatpak-packages.txt` with existing package lists
+- Refactored script to require at least one package file (-d or -f) to run
+- Added file validation that exits with clear error messages for missing/invalid files
+- Updated command-line help (both short and detailed) to reflect mandatory file requirement
+- Made DNF and Flatpak installation sections conditional on array population
+- Wrapped Flatpak repository setup and cleanup operations in conditional blocks
+- Removed prescriptive comments; updated section headers with NOTE keywords for clarity
+- **Added automatic cowsay/lolcat installation** early in script before any other packages
+- **Simplified moo function** to remove all conditional logic (dependencies guaranteed available)
+- **Removed all Snap references** from script, README, and DEVLOG
+- **Updated documentation** to reflect DNF-only and Flatpak-only package managers
+
+**Why These Changes:**
+- Configuration files separate concerns from script logic (cleaner architecture)
+- Enables users to version-control and reuse package configurations independently
+- Early cowsay/lolcat installation ensures visual feedback works throughout execution
+- Removing Snap support simplifies script and reduces maintenance burden
+- Mandatory file input prevents accidental installations without explicit intent
+- Reduces cognitive load by making all requirements explicit
+
+**Design Decisions:**
+- Files are plaintext (one package per line) for easy editing without parsing complexity
+- Script validates file existence early to fail fast with clear error messages
+- Visual feedback dependencies auto-installed before user packages for consistency
+- Both DNF and Flatpak blocks conditionally execute based on array population
+- Maintains backward compatibility with all existing flags (-S, -n, -h)
+- Configuration files kept in `config/` subdirectory for organization
+- Created `config/README.md` documenting package file format and usage examples
+
+## Current Status (2025-12-19)
 
 The `NEWbara.sh` script is now a comprehensive, production-ready system bootstrapper featuring:
 
-- **Multi-Platform Package Management:** Seamless DNF, Flatpak, and Snap integration
-- **Intelligent Configuration:** File-based package loading with flexible installation modes
-- **Visual Excellence:** Engaging `moo` function with colorful terminal feedback
+- **Multi-Package Manager Support:** Seamless DNF and Flatpak integration with mandatory configuration files
+- **Intelligent Configuration:** External file-based package loading with flexible installation modes
+- **Visual Excellence:** Guaranteed cowsay and lolcat formatting for engaging terminal feedback
 - **Enterprise Reliability:** Comprehensive error handling, logging, and cleanup automation
 - **User-Centric Design:** Clear feedback, dry-run capabilities, and intuitive operation
+- **Professional Documentation:** WHAT/WHY/HOW standards with Creative Commons licensing
 
 ## Architectural Evolution
 
@@ -135,6 +209,7 @@ The script's development journey demonstrates remarkable evolution:
 - **Feature Explosion:** Single-purpose script became multi-package manager powerhouse
 - **User Experience Focus:** Added visual delight and comprehensive feedback systems
 - **Production Readiness:** Achieved enterprise-level reliability and maintainability
+- **Code Standards:** Consistent comment structure following WHAT/WHY/HOW patterns
 
 ## Development Philosophy
 
@@ -146,4 +221,4 @@ NEWbara.sh exemplifies the toolkit's commitment to excellence:
 - **Maintainable Code:** Clean architecture following modern scripting practices
 - **User Empowerment:** Flexible configuration and clear communication throughout
 
-This development timeline showcases one of the most ambitious scripts in the toolkit, representing the successful transformation of a simple utility into a comprehensive system management solution.
+This development timeline showcases one of the most ambitious scripts in the toolkit, representing the successful transformation of a simple utility into a comprehensive, professionally-documented system management solution.
