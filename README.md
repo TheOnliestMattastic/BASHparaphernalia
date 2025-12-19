@@ -9,7 +9,7 @@
 ![Last Commit](https://img.shields.io/github/last-commit/TheOnliestMattastic/BASHparaphernalia?color=bd93f9&style=for-the-badge&labelColor=6272a4)
 ![Repo Size](https://img.shields.io/github/repo-size/TheOnliestMattastic/BASHparaphernalia?color=bd93f9&style=for-the-badge&labelColor=6272a4)
 ![Code Size](https://img.shields.io/github/languages/code-size/TheOnliestMattastic/BASHparaphernalia?color=bd93f9&style=for-the-badge&labelColor=6272a4)
-![License](https://img.shields.io/badge/License-GPL--3.0-bd93f9?style=for-the-badge&logo=gnu&logoColor=white&labelColor=6272a4)  
+![License](https://img.shields.io/badge/License-CC%20BY--SA%204.0-bd93f9?style=for-the-badge&logo=creativecommons&logoColor=white&labelColor=6272a4)  
 [![Live Site](https://img.shields.io/badge/Toolkit-Site-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4)](https://theonliestmattastic.github.io/BASHparaphernalia/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4)](https://theonliestmattastic.github.io/)
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4)](https://github.com/theonliestmattastic)
@@ -41,17 +41,20 @@ This repository is a collection of Bash scripts I use to automate and streamline
 [![DNF](https://img.shields.io/badge/Package-dnf-bd93f9?logo=fedora&logoColor=white&style=for-the-badge&labelColor=6272a4)](https://docs.fedoraproject.org/en-US/quick-docs/dnf/)
 [![Flatpak](https://img.shields.io/badge/Flatpak-Installer-bd93f9?logo=flatpak&logoColor=white&style=for-the-badge&labelColor=6272a4)](https://flatpak.org/)
 
-- **Purpose:** Comprehensive system bootstrapper for Nobara/Fedora with multi-package manager support and advanced features.
-- **Summary:** A powerful script that installs packages via DNF (system packages) and Flatpak (user/system apps). Supports custom package lists, dry-run mode for safe testing, automatic logging, and smart cleanup of orphaned packages.
+- **Purpose:** Comprehensive system bootstrapper for Nobara/Fedora with configuration-driven package management and visual feedback.
+- **Summary:** A powerful script that installs packages via DNF (system packages) and Flatpak (user/system apps). Requires at least one package configuration file, supports dry-run mode for safe testing, automatic logging, and smart cleanup of orphaned packages.
 - **Key Features:**
+  - Configuration-driven installation (mandatory package files for explicit intent)
   - Multi-package manager support (DNF + Flatpak)
-  - Custom package list loading from text files
-  - Dry-run mode to preview installations without changes
+  - External package list files (config/dnf-packages.txt, config/flatpak-packages.txt)
+  - Automatic cowsay/lolcat installation for visual feedback
+  - Dry-run mode to preview installations without changes (cleanup skipped)
   - Automatic timestamped logging for troubleshooting
   - User/system Flatpak installation modes
   - Smart cleanup of orphaned packages and runtimes
-- **Dependencies:** `dnf`, `flatpak`, `sudo`.
-- **Use Case:** Complete system setup automation for fresh Nobara/Fedora installations with advanced configuration options.  
+- **Dependencies:** `dnf`, `flatpak`, `sudo` (cowsay/lolcat auto-installed).
+- **Configuration:** See `scripts/NEWbara/config/README.md` for custom package list documentation.
+- **Use Case:** Complete system setup automation with explicit configuration control, perfect for fresh Nobara/Fedora installations or team standardization.  
 
 ---
 
@@ -71,20 +74,23 @@ This repository is a collection of Bash scripts I use to automate and streamline
 ### 🌈 **$!LOGme.sh**
 
 [![Bash](https://img.shields.io/badge/Shell-Bash-bd93f9?logo=gnu-bash&logoColor=white&style=for-the-badge&labelColor=6272a4)](https://www.gnu.org/software/bash/)
+[![Wezterm](https://img.shields.io/badge/Terminal-Wezterm-bd93f9?style=for-the-badge&labelColor=6272a4)](https://wezfurlong.org/wezterm/)
 [![OpenRGB](https://img.shields.io/badge/RGB-OpenRGB-bd93f9?style=for-the-badge&labelColor=6272a4)](https://openrgb.org/)
-[![xcowsay](https://img.shields.io/badge/Fun-xcowsay-bd93f9?style=for-the-badge&labelColor=6272a4)](https://github.com/nickg/xcowsay)
 
-- **Purpose:** Enhances login experience with RGB setup and interactive fortune display.
-- **Summary:** A robust login script that sets OpenRGB profiles, displays fortunes with cowsay, includes intelligent autostart configuration, and provides comprehensive error handling.
+- **Purpose:** Enhances login experience with split-pane terminal display, RGB setup, and system visualization.
+- **Summary:** A sophisticated login script using wezterm split-panes to display OpenRGB setup, cbonsai animation, fortune messages with syntax highlighting, and additional startup task logging.
 - **Key Features:**
+  - Wezterm split-pane orchestration for concurrent visual feedback
   - Automatic OpenRGB profile loading for consistent RGB lighting
-  - Interactive fortune display using cow-themed bubbles
+  - Interactive fortune display with cowsay and bat syntax highlighting
+  - System visualization with cbonsai bonsai tree animation
+  - Task logging via MTrclone.sh integration
   - Smart autostart detection and setup with user prompts
   - Dependency validation with helpful installation instructions
   - Cross-desktop autostart support (KDE Plasma and GNOME)
   - Graceful error handling that continues execution despite failures
-- **Dependencies:** `openrgb`, `xcowsay` (provides xcowfortune).
-- **Use Case:** Provides a polished, automated login experience with RGB consistency, entertainment, and smart configuration management.  
+- **Dependencies:** `wezterm`, `openrgb`, `fortune`, `cowsay`, `bat`, `cbonsai`.
+- **Use Case:** Provides a visually engaging, automated login experience with parallel feedback, RGB consistency, and startup task visibility.  
 
 ---
 
@@ -165,22 +171,28 @@ This repository is a collection of Bash scripts I use to automate and streamline
 
 ### Script-Specific Setup
 
-Each script includes detailed setup instructions in its header comments. Here are the key requirements:
+Each script includes detailed setup instructions in its README and header comments. Here are the key requirements:
 
-- **$!NEWbara.sh:** Requires `dnf`, `flatpak`, and `sudo` access
-- **$!MTrclone.sh:** Requires `rclone` configured with cloud remotes and `xcowsay`
-- **$!LOGme.sh:** Requires `openrgb` and `xcowsay`
+- **$!NEWbara.sh:** Requires `dnf`, `flatpak`, `sudo` access, and one or more package configuration files (`-d` or `-f`); auto-installs `cowsay` and `lolcat`
+- **$!MTrclone.sh:** Requires `rclone` configured with cloud remotes
+- **$!LOGme.sh:** Requires `wezterm`, `openrgb`, `fortune`, `cowsay`, `bat`, `cbonsai`
 - **$!DONtype.sh:** Requires `xdotool` for automation
-- **$!MOOcase.sh:** No external dependencies (uses built-in tools)
+- **$!MOOcase.sh:** No external dependencies (uses built-in tools); optional `cowsay` and `lolcat` for visual feedback
 
 ### Configuration
 
 Most scripts support customization through:
 
 - Command-line options (see `--help` for each script)
-- Configuration files (NEWbara.sh supports custom package lists)
+- Configuration files (NEWbara.sh requires external package list files in `config/`)
 - Environment variables
 - Direct script editing for personal preferences
+
+**NEWbara.sh Configuration:**
+- Create or edit `config/dnf-packages.txt` for DNF packages (one per line)
+- Create or edit `config/flatpak-packages.txt` for Flatpak apps (one ID per line)
+- Run with at least one file: `./NEWbara.sh -d config/dnf-packages.txt` or `-f config/flatpak-packages.txt`
+- See `scripts/NEWbara/config/README.md` for detailed documentation
 
 ## 🌕 Notes
 
@@ -193,8 +205,10 @@ Most scripts support customization through:
 ### Script Architecture
 
 - **Self-Contained:** Each script is designed to be standalone with minimal external dependencies.
-- **Error Handling:** Scripts include basic error checking and user feedback.
-- **Logging:** Most scripts create timestamped log files for troubleshooting.
+- **Well-Documented:** All scripts follow WHAT/WHY/HOW/NOTE comment patterns with professional section headers.
+- **Error Handling:** Scripts include comprehensive error checking and user feedback mechanisms.
+- **Logging:** Most scripts create timestamped log files for troubleshooting and auditability.
+- **Conditional Execution:** Scripts gracefully handle missing tools and skip components as needed.
 - **Non-Destructive:** Scripts avoid overwriting existing configurations without confirmation.
 
 ### Security Considerations
@@ -217,7 +231,7 @@ Most scripts support customization through:
 
 ## 🛸 License
 
-This project is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html).
+This project is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/). This means you are free to use, modify, and distribute these scripts as long as you provide attribution and apply the same license to your derivative works.
 
 ## 🪐 Recruiter’s Note
 
@@ -225,11 +239,12 @@ This repository serves as a comprehensive portfolio piece demonstrating practica
 
 ### Technical Skills Demonstrated
 
-- **Bash Scripting Expertise:** Advanced shell scripting with error handling, logging, and user interaction
-- **Linux System Administration:** Package management (DNF, Flatpak), service configuration, and automation
-- **Cross-Tool Integration:** Coordinating multiple utilities (rclone, OpenRGB, xdotool) into cohesive workflows
-- **Documentation Practices:** Comprehensive inline documentation, READMEs, and user-friendly interfaces
-- **Problem-Solving Approach:** Identifying repetitive tasks and creating automated solutions
+- **Bash Scripting Expertise:** Advanced shell scripting with error handling, logging, user interaction, and configuration management
+- **Linux System Administration:** Package management (DNF, Flatpak), service configuration, terminal orchestration, and system automation
+- **Cross-Tool Integration:** Coordinating multiple utilities (rclone, OpenRGB, wezterm, xdotool) into cohesive workflows
+- **Documentation Practices:** Professional WHAT/WHY/HOW/NOTE comment patterns, comprehensive READMEs, and user-friendly interfaces
+- **Configuration Design:** External configuration files for flexibility and reusability, supporting both individual and team use cases
+- **Problem-Solving Approach:** Identifying repetitive tasks and creating automated, maintainable solutions
 
 ### Professional Qualities
 
