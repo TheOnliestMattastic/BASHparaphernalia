@@ -1,0 +1,195 @@
+<!--
+  =============================================================================
+  DONtype.sh Script Documentation
+  =============================================================================
+  WHAT: Detailed documentation page for DONtype.sh in-game keybinding automation
+  WHY:  Provides comprehensive reference with setup, keybinding layout,
+        and troubleshooting without bloating the main index page
+  HOW:  Semantic HTML5 with shared style.css; includes feature details,
+        keybinding reference, and timing information
+  NOTE: Navigate back to index.html for project overview
+  =============================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DONtype.sh - In-game keybinding automation for Schedule I using xdotool">
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+  <title>DONtype.sh - BASHparaphernalia</title>
+</head>
+
+<body>
+
+  <header>
+    <button id="theme-toggle" aria-label="Toggle light/dark theme">🌞</button>
+    <h1>🤖 DONtype.sh</h1>
+    <h2>In-Game Keybinding Automation</h2>
+    <div class="buttons">
+      <a href="../index.html"><img alt="Back to Home" src="https://img.shields.io/badge/Home-Index-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4"></a>
+      <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/DONtype/DONtype.sh" target="_blank"><img alt="View Source Code" src="https://img.shields.io/badge/Code-View-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+      <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/tree/main/scripts/DONtype" target="_blank"><img alt="Full Documentation" src="https://img.shields.io/badge/Docs-Directory-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="project-card">
+      <h2>Overview</h2>
+      <p>
+        <strong>DONtype.sh</strong> automates in-game keybinding configuration for Schedule I using xdotool. It maps teleport locations and utility commands to function keys (F1–F12) with enhanced reliability and user feedback.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h2>Key Features</h2>
+      <ul>
+        <li><strong>Function Key Binding:</strong> Maps teleport locations and utility commands to F1–F12</li>
+        <li><strong>Fast Setup:</strong> Completes configuration in approximately 20 seconds</li>
+        <li><strong>Real-Time Feedback:</strong> Countdown timer and progress indicators</li>
+        <li><strong>Error Recovery:</strong> Continues despite individual binding failures</li>
+        <li><strong>Dependency Validation:</strong> Checks for xdotool availability with helpful error messages</li>
+        <li><strong>Robust Execution:</strong> Comprehensive error handling with detailed status reporting</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <h2>Installation & Setup</h2>
+      <h3>Install xdotool</h3>
+      <pre class="code"><code">sudo dnf install xdotool</code></pre>
+
+      <h3>Make Executable and Run</h3>
+      <pre class="code"><code">cd BASHparaphernalia/scripts/DONtype
+chmod +x DONtype.sh
+
+# Run before launching Schedule I
+./DONtype.sh
+
+# Script will display progress and countdowns during execution</code></pre>
+    </div>
+
+    <div class="project-card">
+      <h2>Keybinding Layout</h2>
+      <p>DONtype.sh maps the following function keys to in-game actions:</p>
+      <table style="width: 100%; border-collapse: collapse; margin: 1em 0;">
+        <thead>
+          <tr style="border-bottom: 2px solid #bd93f9;">
+            <th style="padding: 0.5em; text-align: left;">Key</th>
+            <th style="padding: 0.5em; text-align: left;">Function</th>
+            <th style="padding: 0.5em; text-align: left;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #6272a4;">
+            <td style="padding: 0.5em;">F1</td>
+            <td style="padding: 0.5em;">Teleport</td>
+            <td style="padding: 0.5em;">Primary location teleport</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #6272a4;">
+            <td style="padding: 0.5em;">F2</td>
+            <td style="padding: 0.5em;">Teleport</td>
+            <td style="padding: 0.5em;">Secondary location teleport</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #6272a4;">
+            <td style="padding: 0.5em;">F3–F12</td>
+            <td style="padding: 0.5em;">Utility</td>
+            <td style="padding: 0.5em;">Various in-game utility commands</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>Note:</strong> Exact bindings depend on Schedule I's keybinding system; see script source for detailed mapping.</p>
+    </div>
+
+    <div class="project-card">
+      <h2>Usage Workflow</h2>
+      <ol>
+        <li>Run <code>./DONtype.sh</code> from terminal</li>
+        <li>Script displays countdown (allow time to switch to game window if needed)</li>
+        <li>xdotool automatically types keybindings into Schedule I's keybinding menu</li>
+        <li>Real-time progress indicators show which bindings are being configured</li>
+        <li>Script completes in ~20 seconds</li>
+        <li>Close keybinding menu in-game; bindings are now active</li>
+      </ol>
+    </div>
+
+    <div class="project-card">
+      <h2>Dependencies</h2>
+      <ul>
+        <li><strong>Required:</strong> xdotool, X11 display server</li>
+        <li><strong>System:</strong> Linux with X11 (Wayland not supported)</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <h2>Requirements</h2>
+      <ul>
+        <li>Schedule I must be running and game keybinding menu must be open</li>
+        <li>X11 display server must be active (Wayland not supported)</li>
+        <li>Game window must be focused for xdotool to send keystrokes</li>
+        <li>No other input should occur while script is running</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <h2>Troubleshooting</h2>
+      <ul>
+        <li><strong>xdotool not found:</strong> Install with <code>sudo dnf install xdotool</code></li>
+        <li><strong>Keystrokes not registering:</strong> Ensure game window is focused and in keybinding menu</li>
+        <li><strong>Wayland display server error:</strong> Switch to X11 session (xdotool requires X11)</li>
+        <li><strong>Permission denied:</strong> Make script executable with <code>chmod +x DONtype.sh</code></li>
+        <li><strong>Script hangs:</strong> Force quit with <code>Ctrl+C</code> and try again</li>
+        <li><strong>Bindings not saved:</strong> Confirm keybinding changes in game menu after script completes</li>
+      </ul>
+    </div>
+
+    <div class="project-card">
+      <h2>Customization</h2>
+      <p>To modify keybindings for your specific in-game setup:</p>
+      <ol>
+        <li>Open the script with a text editor: <code>nano DONtype.sh</code></li>
+        <li>Locate the keybinding configuration section</li>
+        <li>Edit function key mappings to match your desired in-game actions</li>
+        <li>Adjust timing values (sleep durations) if game is slow to respond</li>
+        <li>Save and run the modified script</li>
+      </ol>
+    </div>
+
+  </main>
+
+  <footer>
+    <p><q><em>Sometimes the questions are complicated and the answers are simple.</em></q> — Dr. Seuss</p>
+  </footer>
+
+  <script>
+    (function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const htmlElement = document.documentElement;
+
+      const savedTheme = localStorage.getItem('theme') || 'system';
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initialTheme = savedTheme === 'system' ? (prefersDark ? 'dark' : 'light') : savedTheme;
+
+      htmlElement.setAttribute('data-theme', initialTheme);
+      updateToggleEmoji(initialTheme);
+
+      themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateToggleEmoji(newTheme);
+      });
+
+      function updateToggleEmoji(theme) {
+        themeToggle.textContent = theme === 'dark' ? '🌙' : '🌞';
+      }
+    })();
+  </script>
+
+</body>
+
+</html>
