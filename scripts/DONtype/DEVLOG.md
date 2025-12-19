@@ -85,14 +85,35 @@ This document chronicles the development history of the `donTYPE.sh` script, fro
   - Better separation of concerns
   - Enhanced error reporting with line numbers
 
-## Current Status (2025-10-29)
+## 2025-12-19: Comment Refactoring and License Change
 
-The `donTYPE.sh` script is now a mature, production-ready automation tool featuring:
+**Changes:**
+- **Refactored all inline comments** to follow WHAT/WHY/HOW/NOTE standards with section headers
+- **Replaced prescriptive comments** with concise, action-oriented descriptions
+- **Improved code documentation** for better maintainability and consistency
+- **Changed license from GPL-3.0 to CC-BY-SA-4.0** (Creative Commons Attribution-ShareAlike 4.0)
+- **Updated README.md** license badge and reference links
+
+**Comment Structure Improvements:**
+- Removed redundant explanations that merely repeated code logic
+- Added section headers using dashes for visual organization
+- Focused comments on intent (WHAT) and rationale (WHY) rather than implementation details
+- Made all comments concise and purpose-driven
+
+**License Change Rationale:**
+- Aligned with broader project licensing strategy across scripts
+- More flexible attribution-based license for broader collaboration
+- Maintains attribution and share-alike requirements
+
+## Current Status (2025-12-19)
+
+The `DONtype.sh` script is now a mature, production-ready automation tool featuring:
 
 - **Reliability:** Comprehensive error handling and dependency checking
 - **User Experience:** Progress feedback, countdown timers, and clear messaging
-- **Maintainability:** Modular code structure with associative arrays
-- **Performance:** Optimized timing for faster execution
+- **Maintainability:** Modular code structure with WHAT/WHY/HOW standards and associative arrays
+- **Performance:** Optimized timing for faster execution (~20 seconds)
 - **Documentation:** Complete README.md with usage examples and troubleshooting
+- **Licensing:** Creative Commons Attribution-ShareAlike 4.0 International
 
-The script successfully demonstrates the evolution from a simple automation hack to a robust, user-friendly tool suitable for production use in gaming automation scenarios.
+The script successfully demonstrates the evolution from a simple automation hack to a robust, user-friendly, professionally-documented tool suitable for production use in gaming automation scenarios.

@@ -6,7 +6,7 @@
   <img alt="Banner" src="./assets/banner-light.png">
 </picture>
 
-![License](https://img.shields.io/badge/License-GPL--3.0-bd93f9?style=for-the-badge&logo=gnu&logoColor=white&labelColor=6272a4)
+![License](https://img.shields.io/badge/License-CC%20BY--SA%204.0-bd93f9?style=for-the-badge&logo=creativecommons&logoColor=white&labelColor=6272a4)
 [![Live Site](https://img.shields.io/badge/Toolkit-Site-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4)](https://theonliestmattastic.github.io/BASHparaphernalia/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-bd93f9?style=for-the-badge&logo=githubpages&logoColor=white&labelColor=6272a4)](https://theonliestmattastic.github.io/)
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4)](https://github.com/theonliestmattastic)
@@ -50,14 +50,6 @@ chmod +x DONtype.sh
 
 Switch to the game window within 5 seconds.
 
-## 🌠 TODO: Future Features
-
-- [ ] **Configurable Bindings**: Allow custom key-command mappings via external config file.
-- [ ] **Multi-Game Support**: Extend to other games with console commands.
-- [ ] **Window Detection**: Automatically detect and focus game window.
-- [ ] **Command Retry**: Implement retry mechanism for failed bindings.
-- [ ] **GUI Configuration**: Add a simple GUI for binding customization.
-
 ## 🔧 Keybindings Set
 
 - **F1**: `~bind f1 teleport motelroom`
@@ -75,7 +67,7 @@ Switch to the game window within 5 seconds.
 
 ## 🌌 Contributing
 
-Contributions welcome! Report issues or suggest improvements via GitHub.
+Contributions are welcome! Report issues or suggest improvements via GitHub.
 
 ## 🌕 Notes
 
@@ -88,7 +80,7 @@ Contributions welcome! Report issues or suggest improvements via GitHub.
 
 ## 🛸 License
 
-This project is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.html).
+This project is licensed under the [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
 
 ## 🪐 Recruiter's Note
 
