@@ -74,11 +74,7 @@
     <button id="theme-toggle" aria-label="Toggle light/dark theme">🌞</button>
 
     <!-- Project Banner -->
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.png">
-      <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.png">
-      <img alt="BASHparaphernalia Banner" src="./assets/banner-light.png">
-    </picture>
+    <img class="banner" id="banner-img" alt="BASHparaphernalia Banner" src="./assets/banner-light.png">
 
     <!-- Project Title and Subtitle -->
     <h1>$!BASHparaphernalia</h1>
@@ -317,8 +313,22 @@ chmod +x scripts/*/*.sh
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const initialTheme = savedTheme === 'system' ? (prefersDark ? 'dark' : 'light') : savedTheme;
 
+      function updateToggleEmoji(theme) {
+        themeToggle.textContent = theme === 'dark' ? '🌙' : '🌞';
+      }
+
+      function updateBannerImages(theme) {
+        const bannerImg = document.getElementById('banner-img');
+        if (bannerImg) {
+          const filename = theme === 'dark' ? 'banner-dark.png' : 'banner-light.png';
+          const newSrc = bannerImg.src.replace(/banner-(dark|light)\.png(\?.*)?/, filename + '?t=' + Date.now());
+          bannerImg.src = newSrc;
+        }
+      }
+
       htmlElement.setAttribute('data-theme', initialTheme);
       updateToggleEmoji(initialTheme);
+      updateBannerImages(initialTheme);
 
       themeToggle.addEventListener('click', () => {
         const currentTheme = htmlElement.getAttribute('data-theme');
@@ -327,11 +337,8 @@ chmod +x scripts/*/*.sh
         htmlElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateToggleEmoji(newTheme);
+        updateBannerImages(newTheme);
       });
-
-      function updateToggleEmoji(theme) {
-        themeToggle.textContent = theme === 'dark' ? '🌙' : '🌞';
-      }
     })();
   </script>
 
