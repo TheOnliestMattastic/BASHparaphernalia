@@ -1,33 +1,44 @@
-/* Dracula-inspired Light Theme */
+/* Kokiri Colorscheme Theme */
 :root {
-  --bg-color: #edeef7;
-  --text-color: #1e1e1e;
-  --card-bg: #f7f7fb;
-  --header-bg: #dcdff2;
-  --header-text: #1e1e1e;
-  --accent: #6272a4;
-  --accent-hover: #7082c4;
-  --secondary: #bd93f9;
-  --secondary-hover: #9a6df0;
-  --logo-color: #7082c4;
-  --footer-bg: #dcdff2;
-  --footer-text: #1e1e1e;
+  /* Dark theme (Kokiri primary) */
+  --bg-color: #071524;
+  --text-color: #a2faa2;
+  --card-bg: #122030;
+  --header-bg: #2f3e4f;
+  --header-text: #a1ceff;
+  --accent: #a8c5ff;
+  --accent-hover: #93e5ff;
+  --secondary: #e8bfff;
+  --secondary-hover: #ffbca1;
+  --logo-color: #a8c5ff;
+  --footer-bg: #2f3e4f;
+  --footer-text: #a1ceff;
+  --comment-color: #5cb25e;
+  --constant-color: #e8bfff;
+  --string-color: #c5f19c;
+  --keyword-color: #a2faa2;
+  --special-color: #7ffbdd;
 }
 
-/* Dark theme (Dracula classic) */
-[data-theme="dark"] {
-  --bg-color: #1e1e1e; 
-  --text-color: #f8f8f2;
-  --card-bg: #282a36;
-  --header-bg: #44475a;
-  --header-text: #f8f8f2;
-  --accent: #bd93f9;
-  --accent-hover: #9a6df0;
-  --secondary: #6272a4;
-  --secondary-hover: #7082c4;
-  --logo-color: #bd93f9;
-  --footer-bg: #44475a;
-  --footer-text: #f8f8f2;
+/* Light theme (Kokiri inverted for readability) */
+[data-theme="light"] {
+  --bg-color: #f0f1f5;
+  --text-color: #122030;
+  --card-bg: #f7f8fb;
+  --header-bg: #e8ecf5;
+  --header-text: #122030;
+  --accent: #5a7eb5;
+  --accent-hover: #4a6a9f;
+  --secondary: #9a6df0;
+  --secondary-hover: #ffbca1;
+  --logo-color: #5a7eb5;
+  --footer-bg: #e8ecf5;
+  --footer-text: #122030;
+  --comment-color: #5cb25e;
+  --constant-color: #9a6df0;
+  --string-color: #2d6938;
+  --keyword-color: #2d6938;
+  --special-color: #0f8ea0;
 }
 
 /* Global styles */
@@ -59,7 +70,7 @@ h1, h2 {
   color: var(--text-color);
   border-radius: 10px;
   padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   margin: 2rem auto;
   max-width: 900px;
   transition: background 0.5s ease, color 0.5s ease;
@@ -70,7 +81,7 @@ h1, h2 {
 }
 
 h2 {
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid var(--accent);
   padding-bottom: 0.3rem;
 }
 
@@ -83,9 +94,9 @@ h2 {
 }
 
 .preview img {
-  max-width: 800px;   /* limit image size */
+  max-width: 800px;
   height: auto;
-  border: 1px solid #ccc;
+  border: 1px solid var(--accent);
   border-radius: 2px;
 }
 
@@ -114,10 +125,17 @@ img, .ascii-logo, .project-card img {
 pre {
   display: inline-block;
   overflow-x: auto;
+  background: var(--header-bg);
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
 }
 
 code {
   background: var(--header-bg);
+  color: var(--string-color);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
 }
 
 .banner {
@@ -144,24 +162,49 @@ code {
   top: 1rem;
   right: 1rem;
   padding: 0.4rem 0.6rem;
-  border: none;
+  border: 2px solid var(--accent);
   border-radius: 50%;
   cursor: pointer;
   font-size: 1.2rem;
-  background: var(--accent);
-  color: #fff;
-  transition: background 0.5s ease, transform 0.5s ease;
+  background: var(--card-bg);
+  color: var(--accent);
+  transition: background 0.5s ease, transform 0.5s ease, color 0.5s ease;
 }
 
 #theme-toggle:hover {
-  background: var(--accent-hover);
+  background: var(--accent);
+  color: var(--bg-color);
   transform: scale(1.1);
 }
 
 /* Footer */
 footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
   margin-top: 2rem;
+}
+
+/* Semantic color classes for code/content highlights */
+.comment {
+  color: var(--comment-color);
+}
+
+.string {
+  color: var(--string-color);
+}
+
+.keyword {
+  color: var(--keyword-color);
+  font-weight: bold;
+}
+
+.constant {
+  color: var(--constant-color);
+}
+
+.special {
+  color: var(--special-color);
 }
