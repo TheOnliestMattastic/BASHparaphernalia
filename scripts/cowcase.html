@@ -17,8 +17,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="COWcase.sh - Batch file and directory case conversion for standardized naming">
-  <link rel="stylesheet" href="../style.css" />
-  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <title>COWcase.sh - BASHparaphernalia</title>
 </head>
 
@@ -26,27 +26,30 @@
 
   <header>
     <button id="theme-toggle" aria-label="Toggle light/dark theme">🌞</button>
-    <h1>🔄 COWcase.sh & JUSTcase.sh</h1>
+    <img class="banner" id="banner-img" alt="COWcase Banner" src="../scripts/COWcase/assets/banner-light.png">
+    <h1>🐮 COWcase.sh & JUSTcase.sh</h1>
     <h2>Batch File/Directory Case Conversion</h2>
     <div class="buttons">
-      <a href="../index.html"><img alt="Back to Home" src="https://img.shields.io/badge/Home-Index-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4"></a>
-      <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/COWcase/COWcase.sh" target="_blank"><img alt="View Source Code" src="https://img.shields.io/badge/Code-View-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
-      <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/tree/main/scripts/COWcase" target="_blank"><img alt="Full Documentation" src="https://img.shields.io/badge/Docs-Directory-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+      <a href="../index.html"><img alt="Back to Home"
+          src="https://img.shields.io/badge/Home-Index-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4"></a>
+      <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/COWcase/COWcase.sh"
+        target="_blank"><img alt="View Source Code"
+          src="https://img.shields.io/badge/Code-View-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
+      <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/tree/main/scripts/COWcase" target="_blank"><img
+          alt="Full Documentation"
+          src="https://img.shields.io/badge/Docs-Directory-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
     </div>
   </header>
 
   <main>
 
-    <picture class="banner">
-      <source media="(prefers-color-scheme: dark)" srcset="../scripts/COWcase/assets/banner-dark.png">
-      <source media="(prefers-color-scheme: light)" srcset="../scripts/COWcase/assets/banner-light.png">
-      <img alt="COWcase Banner" src="../scripts/COWcase/assets/banner-light.png">
-    </picture>
 
     <div class="project-card">
       <h2>Overview</h2>
       <p>
-        <strong>COWcase.sh</strong> and <strong>JUSTcase.sh</strong> standardize file and directory naming by batch converting the first character case. COWcase provides rich visual feedback and logging; JUSTcase is a lean alternative for speed and scripting integration.
+        <strong>COWcase.sh</strong> and <strong>JUSTcase.sh</strong> standardize file and directory naming by batch
+        converting the first character case. COWcase provides rich visual feedback and logging; JUSTcase is a lean
+        alternative for speed and scripting integration.
       </p>
     </div>
 
@@ -55,7 +58,8 @@
       <ul>
         <li><strong>Case Conversion Modes:</strong> Lowercase by default; uppercase with −u flag</li>
         <li><strong>Selective Processing:</strong> Process directories only (−d), files only (−f), or both</li>
-        <li><strong>Custom Path Targeting:</strong> Specify target directory with −p flag (defaults to current directory)</li>
+        <li><strong>Custom Path Targeting:</strong> Specify target directory with −p flag (defaults to current
+          directory)</li>
         <li><strong>Safe Renaming:</strong> Only renames items when new name differs from original</li>
         <li><strong>Visual Feedback:</strong> Cowsay/lolcat messages when available (graceful fallback)</li>
         <li><strong>Comprehensive Logging:</strong> Detailed output of all rename operations</li>
@@ -65,57 +69,65 @@
 
     <div class="project-card">
       <h2>Installation & Setup</h2>
-      <pre class="code"><code"># No dependencies required (optional cowsay/lolcat for COWcase.sh visual feedback)
-cd BASHparaphernalia/scripts/COWcase
-chmod +x COWcase.sh JUSTcase.sh
+      <pre class="code">
+        <code># No dependencies required (optional cowsay/lolcat for COWcase.sh visual feedback)
+          cd BASHparaphernalia/scripts/COWcase
+          chmod +x COWcase.sh JUSTcase.sh
 
-# View help
-./COWcase.sh -h</code></pre>
+          # View help
+          ./COWcase.sh -h</code>
+      </pre>
     </div>
 
     <div class="project-card">
       <h2>Command-Line Options</h2>
       <pre class="code"><code>COWcase.sh [OPTIONS]
 
-OPTIONS:
-  -u          Convert to UPPERCASE (default: lowercase)
-  -d          Process directories only
-  -f          Process files only
-  -r          Enable recursive processing (all subdirectories)
-  -n          Dry-run mode (preview without applying)
-  -p PATH     Specify target directory (default: current directory)
+          OPTIONS:
+          -u Convert to UPPERCASE (default: lowercase)
+          -d Process directories only
+          -f Process files only
+          -r Enable recursive processing (all subdirectories)
+          -n Dry-run mode (preview without applying)
+          -p PATH Specify target directory (default: current directory)
 
-EXAMPLES:
-  ./COWcase.sh              # Lowercase directories in current
-  ./COWcase.sh -f           # Lowercase files only
-  ./COWcase.sh -f -u        # Uppercase files only
-  ./COWcase.sh -r           # Recursive: lowercase all dirs
-  ./COWcase.sh -f -r -n     # Preview recursive file rename (dry-run)
-  ./COWcase.sh -d -u -p ~/Documents  # Uppercase dirs in ~/Documents</code></pre>
+          EXAMPLES:
+          ./COWcase.sh # Lowercase directories in current
+          ./COWcase.sh -f # Lowercase files only
+          ./COWcase.sh -f -u # Uppercase files only
+          ./COWcase.sh -r # Recursive: lowercase all dirs
+          ./COWcase.sh -f -r -n # Preview recursive file rename (dry-run)
+          ./COWcase.sh -d -u -p ~/Documents # Uppercase dirs in ~/Documents</code></pre>
     </div>
 
     <div class="project-card">
       <h2>Practical Examples</h2>
       <h3>Standardize Directory Names to Lowercase</h3>
-      <pre class="code"><code"># Convert all directories in current folder to lowercase
-./COWcase.sh -d
+      <pre class="code">
+        <code># Convert all directories in current folder to lowercase
+          ./COWcase.sh -d
 
-# Before: MyPhotos, OldBackups, WebContent
-# After:  myPhotos, oldBackups, webContent</code></pre>
+          # Before: MyPhotos, OldBackups, WebContent
+          # After: myPhotos, oldBackups, webContent</code>
+      </pre>
 
       <h3>Uppercase All Files Recursively (Preview First)</h3>
-      <pre class="code"><code"># Dry-run preview of recursive file rename
-./COWcase.sh -f -u -r -n
+      <pre class="code">
+        <code># Dry-run preview of recursive file rename
+          ./COWcase.sh -f -u -r -n
 
-# Then apply the changes:
-./COWcase.sh -f -u -r</code></pre>
+          # Then apply the changes:
+          ./COWcase.sh -f -u -r</code>
+      </pre>
 
       <h3>Mixed Processing in Nested Directories</h3>
-      <pre class="code"><code"># Convert all files and directories recursively to lowercase
-./COWcase.sh -r -p ~/my_project
+      <pre class="code">
+        <code># Convert all files and directories recursively to lowercase
+          ./COWcase.sh -r -p ~/my_project
 
-# Before: README.md, SrcCode/, HelpDocs/, config.json
-# After:  rEADME.md, srcCode, helpDocs, config.json</code></pre>
+          # Before: README.md, SrcCode/, HelpDocs/, config.json
+          # After: rEADME.md, srcCode, helpDocs, config.json</code>
+      </pre>
 
       <p><strong>Note:</strong> Only the first character is converted; the rest remains unchanged.</p>
     </div>
@@ -140,13 +152,15 @@ EXAMPLES:
         <li><strong>Optional (COWcase.sh):</strong> cowsay, lolcat (for visual feedback)</li>
         <li><strong>Optional (JUSTcase.sh):</strong> None</li>
       </ul>
-      <p>COWcase.sh works without cowsay/lolcat but will gracefully skip visual messages if they're unavailable. JUSTcase.sh has zero external dependencies.</p>
+      <p>COWcase.sh works without cowsay/lolcat but will gracefully skip visual messages if they're unavailable.
+        JUSTcase.sh has zero external dependencies.</p>
     </div>
 
     <div class="project-card">
       <h2>Troubleshooting</h2>
       <ul>
-        <li><strong>Permission denied:</strong> Make scripts executable with <code>chmod +x COWcase.sh JUSTcase.sh</code></li>
+        <li><strong>Permission denied:</strong> Make scripts executable with <code>chmod +x COWcase.sh
+            JUSTcase.sh</code></li>
         <li><strong>Command not found:</strong> Use full path to script or ensure it's in your PATH</li>
         <li><strong>No renaming occurs:</strong> Check target directory exists; verify files match mode (-f or -d)</li>
         <li><strong>Rename fails:</strong> Check file permissions; ensure you have write access to the directory</li>
@@ -159,7 +173,8 @@ EXAMPLES:
     <div class="project-card">
       <h2>Safety Notes</h2>
       <ul>
-        <li><strong>Non-destructive:</strong> Only changes the first character; preserves file extensions and rest of name</li>
+        <li><strong>Non-destructive:</strong> Only changes the first character; preserves file extensions and rest of
+          name</li>
         <li><strong>Skip identical names:</strong> Won't rename if new name would be identical to original</li>
         <li><strong>Error reporting:</strong> Clear messages for failures; continues on individual errors</li>
         <li><strong>Logging:</strong> All operations logged for auditing and recovery</li>
@@ -184,7 +199,7 @@ EXAMPLES:
   </footer>
 
   <script>
-    (function() {
+    (function () {
       const themeToggle = document.getElementById('theme-toggle');
       const htmlElement = document.documentElement;
 
@@ -192,8 +207,22 @@ EXAMPLES:
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const initialTheme = savedTheme === 'system' ? (prefersDark ? 'dark' : 'light') : savedTheme;
 
+      function updateToggleEmoji(theme) {
+        themeToggle.textContent = theme === 'dark' ? '🌙' : '🌞';
+      }
+
+      function updateBannerImages(theme) {
+        const bannerImg = document.getElementById('banner-img');
+        if (bannerImg) {
+          const filename = theme === 'dark' ? 'banner-dark.png' : 'banner-light.png';
+          const newSrc = bannerImg.src.replace(/banner-(dark|light)\.png(\?.*)?/, filename + '?t=' + Date.now());
+          bannerImg.src = newSrc;
+        }
+      }
+
       htmlElement.setAttribute('data-theme', initialTheme);
       updateToggleEmoji(initialTheme);
+      updateBannerImages(initialTheme);
 
       themeToggle.addEventListener('click', () => {
         const currentTheme = htmlElement.getAttribute('data-theme');
@@ -202,11 +231,8 @@ EXAMPLES:
         htmlElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateToggleEmoji(newTheme);
+        updateBannerImages(newTheme);
       });
-
-      function updateToggleEmoji(theme) {
-        themeToggle.textContent = theme === 'dark' ? '🌙' : '🌞';
-      }
     })();
   </script>
 

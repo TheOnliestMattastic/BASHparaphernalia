@@ -120,6 +120,13 @@ code {
   background: var(--header-bg);
 }
 
+.banner {
+  display: block;
+  margin: 0 auto;
+  max-width: 1000px;
+  height: auto;
+}
+
 /* ASCII Art Logo Styling */
 .ascii-logo {
   font-family: "Courier New", monospace;
