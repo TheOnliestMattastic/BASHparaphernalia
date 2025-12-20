@@ -160,9 +160,12 @@ main() {
   check_dependencies
   prompt_autostart_setup
 
+  # Get base dir
+  local scripts_dir
+  scripts_dir="$(dirname "$(dirname "$(realpath "$0")")")"
   # Configure terminal commands for split pane layout
-  local right_pane_cmd='fortune | cowsay -r | bat -pp -l c; /home/mattastic/Projects/BashParaphernalia/scripts/MTrclone/MTrclone.sh; exec bash'
-  local left_pane_cmd='openrgb -p Home; cbonsai -li; exec bash'
+  local right_pane_cmd="fortune | cowsay -r | bat -pp -l c; $scripts_dir/MTrclone/MTrclone.sh; exec bash"
+  local left_pane_cmd="openrgb -p Home; cbonsai -li; exec bash"
 
   echo "Launching login terminal..."
   if ! wezterm start -- bash -c "wezterm cli split-pane --right -- bash -c \"${right_pane_cmd}\"; ${left_pane_cmd}"; then
