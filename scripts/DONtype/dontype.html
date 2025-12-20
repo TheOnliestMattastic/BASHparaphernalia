@@ -17,8 +17,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="DONtype.sh - In-game keybinding automation for Schedule I using xdotool">
-  <link rel="stylesheet" href="../style.css" />
-  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/icons/favicon.svg" />
   <title>DONtype.sh - BASHparaphernalia</title>
 </head>
 
@@ -26,11 +26,11 @@
 
   <header>
     <button id="theme-toggle" aria-label="Toggle light/dark theme">🌞</button>
-    <img class="banner" id="banner-img" alt="DONtype Banner" src="../scripts/DONtype/assets/banner-light.png">
+    <img class="banner" id="banner-img" alt="DONtype Banner" src="./assets/banner-light.png">
     <h1>🤖 DONtype.sh</h1>
     <h2>In-Game Keybinding Automation</h2>
     <div class="buttons">
-      <a href="../index.html"><img alt="Back to Home" src="https://img.shields.io/badge/Home-Index-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4"></a>
+      <a href="../../index.html"><img alt="Back to Home" src="https://img.shields.io/badge/Home-Index-bd93f9?style=for-the-badge&logo=github&logoColor=white&labelColor=6272a4"></a>
       <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/DONtype/DONtype.sh" target="_blank"><img alt="View Source Code" src="https://img.shields.io/badge/Code-View-bd93f9?logo=github&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
       <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/tree/main/scripts/DONtype" target="_blank"><img alt="Full Documentation" src="https://img.shields.io/badge/Docs-Directory-bd93f9?logo=readme&logoColor=white&style=for-the-badge&labelColor=6272a4"></a>
     </div>
@@ -61,10 +61,10 @@
     <div class="project-card">
       <h2>Installation & Setup</h2>
       <h3>Install xdotool</h3>
-      <pre class="code"><code">sudo dnf install xdotool</code></pre>
+      <pre class="code"><code>sudo dnf install xdotool</code></pre>
 
       <h3>Make Executable and Run</h3>
-      <pre class="code"><code">cd BASHparaphernalia/scripts/DONtype
+      <pre class="code"><code>cd BASHparaphernalia/scripts/DONtype
 chmod +x DONtype.sh
 
 # Run before launching Schedule I
@@ -166,7 +166,7 @@ chmod +x DONtype.sh
   </footer>
 
   <script>
-    (function() {
+    (function () {
       const themeToggle = document.getElementById('theme-toggle');
       const htmlElement = document.documentElement;
 
@@ -174,8 +174,22 @@ chmod +x DONtype.sh
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const initialTheme = savedTheme === 'system' ? (prefersDark ? 'dark' : 'light') : savedTheme;
 
+      function updateToggleEmoji(theme) {
+        themeToggle.textContent = theme === 'dark' ? '🌙' : '🌞';
+      }
+
+      function updateBannerImages(theme) {
+        const bannerImg = document.getElementById('banner-img');
+        if (bannerImg) {
+          const filename = theme === 'dark' ? 'banner-dark.png' : 'banner-light.png';
+          const newSrc = bannerImg.src.replace(/banner-(dark|light)\.png(\?.*)?/, filename + '?t=' + Date.now());
+          bannerImg.src = newSrc;
+        }
+      }
+
       htmlElement.setAttribute('data-theme', initialTheme);
       updateToggleEmoji(initialTheme);
+      updateBannerImages(initialTheme);
 
       themeToggle.addEventListener('click', () => {
         const currentTheme = htmlElement.getAttribute('data-theme');
@@ -184,11 +198,8 @@ chmod +x DONtype.sh
         htmlElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateToggleEmoji(newTheme);
+        updateBannerImages(newTheme);
       });
-
-      function updateToggleEmoji(theme) {
-        themeToggle.textContent = theme === 'dark' ? '🌙' : '🌞';
-      }
     })();
   </script>
 

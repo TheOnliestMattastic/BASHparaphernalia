@@ -141,7 +141,7 @@
         visual feedback, dry-run safety, and external configuration files for flexible deployment.
       </p>
       <p class="buttons card">
-        <a href="./scripts/newbara.html"><img alt="View Documentation"
+        <a href="./scripts/NEWbara/newbara.html"><img alt="View Documentation"
             src="https://img.shields.io/badge/Docs-View-bd93f9?style=for-the-badge&logo=readme&logoColor=white&labelColor=6272a4"></a>
         <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/NEWbara/NEWbara.sh"
           target="_blank"><img alt="View Source"
@@ -157,7 +157,7 @@
         automatic directory creation, mount verification, and real-time feedback with visual notifications.
       </p>
       <p class="buttons card">
-        <a href="./scripts/mtrclone.html"><img alt="View Documentation"
+        <a href="./scripts/MTrclone/mtrclone.html"><img alt="View Documentation"
             src="https://img.shields.io/badge/Docs-View-bd93f9?style=for-the-badge&logo=readme&logoColor=white&labelColor=6272a4"></a>
         <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/MTrclone/MTrclone.sh"
           target="_blank"><img alt="View Source"
@@ -173,7 +173,7 @@
         messages, and concurrent task execution. Includes smart autostart detection for both KDE and GNOME.
       </p>
       <p class="buttons card">
-        <a href="./scripts/logme.html"><img alt="View Documentation"
+        <a href="./scripts/LOGme/logme.html"><img alt="View Documentation"
             src="https://img.shields.io/badge/Docs-View-bd93f9?style=for-the-badge&logo=readme&logoColor=white&labelColor=6272a4"></a>
         <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/LOGme/LOGme.sh"
           target="_blank"><img alt="View Source"
@@ -189,7 +189,7 @@
         and utility commands with countdown feedback and error recovery. Completes setup in ~20 seconds.
       </p>
       <p class="buttons card">
-        <a href="./scripts/dontype.html"><img alt="View Documentation"
+        <a href="./scripts/DONtype/dontype.html"><img alt="View Documentation"
             src="https://img.shields.io/badge/Docs-View-bd93f9?style=for-the-badge&logo=readme&logoColor=white&labelColor=6272a4"></a>
         <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/DONtype/DONtype.sh"
           target="_blank"><img alt="View Source"
@@ -205,7 +205,7 @@
         (files/directories), custom paths, and optional visual feedback. Zero dependencies required.
       </p>
       <p class="buttons card">
-        <a href="./scripts/cowcase.html"><img alt="View Documentation"
+        <a href="./scripts/COWcase/cowcase.html"><img alt="View Documentation"
             src="https://img.shields.io/badge/Docs-View-bd93f9?style=for-the-badge&logo=readme&logoColor=white&labelColor=6272a4"></a>
         <a href="https://github.com/TheOnliestMattastic/BASHparaphernalia/blob/main/scripts/COWcase/COWcase.sh"
           target="_blank"><img alt="View Source"
@@ -360,7 +360,7 @@
         const bannerImg = document.getElementById('banner-img');
         if (bannerImg) {
           const filename = theme === 'dark' ? 'banner-dark.png' : 'banner-light.png';
-          const newSrc = bannerImg.src.replace(/banner-(dark|light)\.png(\?.*)?/, filename + '?t=' + Date.now());
+          const newSrc = bannerImg.src.replace(/assets\/banner-(dark|light)\.png(\?.*)?/, 'assets/' + filename + '?t=' + Date.now());
           bannerImg.src = newSrc;
         }
       }
