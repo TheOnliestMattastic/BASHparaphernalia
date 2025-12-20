@@ -1,4 +1,10 @@
-/* Kokiri Colorscheme Theme */
+/* =============================================================================
+   KOKIRI COLORSCHEME THEME
+   -------------------------------------------------------------------------
+   WHAT: CSS custom properties for Kokiri brand colors across light/dark modes
+   WHY:  Centralized color management ensures consistency with HYPERfix.nvim
+   HOW:  CSS variables defined in :root and [data-theme="light"] selectors
+   ============================================================================= */
 :root {
   /* Dark theme (Kokiri primary) */
   --bg-color: #071524;
@@ -22,6 +28,7 @@
 
 /* Light theme (Kokiri inverted for readability) */
 [data-theme="light"] {
+  /* NOTE: Maintains Kokiri aesthetic while improving contrast for light mode */
   --bg-color: #f0f1f5;
   --text-color: #122030;
   --card-bg: #f7f8fb;
@@ -41,7 +48,13 @@
   --special-color: #0f8ea0;
 }
 
-/* Global styles */
+/* =============================================================================
+   GLOBAL STYLES
+   -------------------------------------------------------------------------
+   WHAT: Base typography, spacing, and transitions for document body
+   WHY:  Establish consistent baseline before component-specific styling
+   HOW:  Apply color/transition variables and reset default margins
+   ============================================================================= */
 body {
   background: var(--bg-color);
   color: var(--text-color);
@@ -85,7 +98,13 @@ h2 {
   padding-bottom: 0.3rem;
 }
 
-/* Preview images */
+/* =============================================================================
+   PREVIEW IMAGES
+   -------------------------------------------------------------------------
+   WHAT: Flex layout for centered image gallery with border styling
+   WHY:  Group related images with consistent spacing and visual separation
+   HOW:  Flex container with gap; borders use accent color variable
+   ============================================================================= */
 .preview {
   display: flex;
   gap: 1rem;
@@ -109,7 +128,13 @@ img, .ascii-logo, .project-card img {
 .header { position: relative; }
 .header .ascii-logo { position: relative; top: 0; left: 0; }
 
-/* Buttons */
+/* =============================================================================
+   BUTTONS
+   -------------------------------------------------------------------------
+   WHAT: Flex layout for horizontally-aligned button groups
+   WHY:  Reusable container for navigation and action buttons
+   HOW:  Flex with gap; .card variant left-aligns for card context
+   ============================================================================= */
 .buttons {
   margin-top: 1rem;
   display: flex;
@@ -145,7 +170,13 @@ code {
   height: auto;
 }
 
-/* ASCII Art Logo Styling */
+/* =============================================================================
+   ASCII ART LOGO
+   -------------------------------------------------------------------------
+   WHAT: Monospace typography for centered ASCII art rendering
+   WHY:  Preserve fixed-width formatting for ASCII art integrity
+   HOW:  Courier New monospace with white-space: pre; Kokiri accent color
+   ============================================================================= */
 .ascii-logo {
   font-family: "Courier New", monospace;
   font-size: 12px;
@@ -156,7 +187,14 @@ code {
   margin: 1rem 0;
 }
 
-/* Theme toggle button (fixed top-right) */
+/* =============================================================================
+   THEME TOGGLE BUTTON
+   -------------------------------------------------------------------------
+   WHAT: Fixed circular button for light/dark mode switching (top-right)
+   WHY:  Quick-access theme switcher without disrupting layout flow
+   HOW:  position: absolute; border matches accent; hover inverts colors
+   NOTE: Button styling mirrors Kokiri design language
+   ============================================================================= */
 #theme-toggle {
   position: absolute;
   top: 1rem;
@@ -177,7 +215,13 @@ code {
   transform: scale(1.1);
 }
 
-/* Footer */
+/* =============================================================================
+   FOOTER
+   -------------------------------------------------------------------------
+   WHAT: Bottom page section with background, padding, and metadata text
+   WHY:  Separate visual and semantic footer from main content
+   HOW:  Footer element uses header-bg colors; small centered text
+   ============================================================================= */
 footer {
   background: var(--footer-bg);
   color: var(--footer-text);
@@ -187,7 +231,13 @@ footer {
   margin-top: 2rem;
 }
 
-/* Semantic color classes for code/content highlights */
+/* =============================================================================
+   SEMANTIC COLOR CLASSES
+   -------------------------------------------------------------------------
+   WHAT: Utility classes for syntax-highlighting code and content semantics
+   WHY:  Reusable styling aligned with Kokiri code highlighting palette
+   HOW:  Apply color variables to .comment, .string, .keyword, etc.
+   ============================================================================= */
 .comment {
   color: var(--comment-color);
 }
