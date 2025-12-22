@@ -28,7 +28,6 @@
 
 /* Light theme (Kokiri inverted for readability) */
 [data-theme="light"] {
-  /* NOTE: Maintains Kokiri aesthetic while improving contrast for light mode */
   --bg-color: #f0f1f5;
   --text-color: #122030;
   --card-bg: #f7f8fb;
@@ -49,12 +48,16 @@
 }
 
 /* =============================================================================
-   GLOBAL STYLES
+   GLOBAL STYLES & BOX SIZING
    -------------------------------------------------------------------------
-   WHAT: Base typography, spacing, and transitions for document body
-   WHY:  Establish consistent baseline before component-specific styling
-   HOW:  Apply color/transition variables and reset default margins
+   WHAT: Base document styles, typography, and responsive box model
+   WHY:  Establish consistent baseline and prevent layout overflow on mobile
+   HOW:  box-sizing: border-box on all elements; body color/transition vars
    ============================================================================= */
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: var(--bg-color);
   color: var(--text-color);
@@ -62,9 +65,18 @@ body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  transition: background 0.5s ease, color 0.5s ease;
+  transition:
+    background 0.5s ease,
+    color 0.5s ease;
 }
 
+/* =============================================================================
+   HEADER & NAVIGATION
+   -------------------------------------------------------------------------
+   WHAT: Top-level header with theme toggle, banner, name, tagline, buttons
+   WHY:  Introduction section with quick-access navigation and branding
+   HOW:  Flex layout for buttons; absolute positioning for theme toggle
+   ============================================================================= */
 header {
   background: var(--header-bg);
   color: var(--header-text);
@@ -73,24 +85,10 @@ header {
   position: relative;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin-top: 0;
   color: var(--text-color);
-}
-
-.project-card {
-  background: var(--card-bg);
-  color: var(--text-color);
-  border-radius: 10px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  margin: 2rem auto;
-  max-width: 900px;
-  transition: background 0.5s ease, color 0.5s ease;
-}
-
-.project-card.sub {
-  background: var(--header-bg);
 }
 
 h2 {
@@ -98,47 +96,56 @@ h2 {
   padding-bottom: 0.3rem;
 }
 
-/* =============================================================================
-   PREVIEW IMAGES
-   -------------------------------------------------------------------------
-   WHAT: Flex layout for centered image gallery with border styling
-   WHY:  Group related images with consistent spacing and visual separation
-   HOW:  Flex container with gap; borders use accent color variable
-   ============================================================================= */
-.preview {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.preview img {
-  max-width: 800px;
-  height: auto;
-  border: 1px solid var(--accent);
-  border-radius: 2px;
-}
-
-img, .ascii-logo, .project-card img {
-  max-width: 100%;
-  height: auto;
+#banner-img,
+.banner {
   display: block;
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 100%;
+  height: auto;
 }
 
-.header { position: relative; }
-.header .ascii-logo { position: relative; top: 0; left: 0; }
+/* =============================================================================
+   THEME TOGGLE BUTTON
+   -------------------------------------------------------------------------
+   WHAT: Fixed circular button for light/dark mode switching (top-right)
+   WHY:  Quick-access theme switcher without disrupting layout flow
+   HOW:  position: absolute; border matches accent; hover inverts colors
+   ============================================================================= */
+#theme-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.4rem 0.6rem;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  background: var(--card-bg);
+  color: var(--accent);
+  transition:
+    background 0.5s ease,
+    transform 0.5s ease,
+    color 0.5s ease;
+}
+
+#theme-toggle:hover {
+  background: var(--accent);
+  color: var(--bg-color);
+  transform: scale(1.1);
+}
 
 /* =============================================================================
-   BUTTONS
+   BUTTONS & NAVIGATION
    -------------------------------------------------------------------------
-   WHAT: Flex layout for horizontally-aligned button groups
+   WHAT: Flex layout for horizontally-aligned button groups (badges, links)
    WHY:  Reusable container for navigation and action buttons
    HOW:  Flex with gap; .card variant left-aligns for card context
    ============================================================================= */
 .buttons {
   margin-top: 1rem;
   display: flex;
-  gap: .25rem;
+  gap: 0.25rem;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -147,6 +154,46 @@ img, .ascii-logo, .project-card img {
   justify-content: left;
 }
 
+/* =============================================================================
+   MAIN CONTENT CARDS
+   -------------------------------------------------------------------------
+   WHAT: Project/content card containers with background, shadow, padding
+   WHY:  Visual separation and grouping of content sections
+   HOW:  Fixed max-width 900px, centered with margin auto, smooth transitions
+   ============================================================================= */
+.project-card {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin: 2rem auto;
+  max-width: 900px;
+  transition:
+    background 0.5s ease,
+    color 0.5s ease;
+}
+
+.project-card.sub {
+  background: var(--header-bg);
+}
+
+/* Semantic class for featured/spotlight project (inherits project-card style) */
+.project-card.spotlight {
+  /* NOTE: No additional styles; uses base .project-card styling */
+}
+
+.project-card ul {
+  margin-top: 0.5rem;
+}
+
+/* =============================================================================
+   CODE & TYPOGRAPHY
+   -------------------------------------------------------------------------
+   WHAT: Styling for code blocks, pre blocks, and semantic text elements
+   WHY:  Visual distinction for technical content and code examples
+   HOW:  monospace font, accent color borders, background contrast
+   ============================================================================= */
 pre {
   display: inline-block;
   overflow-x: auto;
@@ -163,20 +210,6 @@ code {
   border-radius: 3px;
 }
 
-.banner {
-  display: block;
-  margin: 0 auto;
-  max-width: 1000px;
-  height: auto;
-}
-
-/* =============================================================================
-   ASCII ART LOGO
-   -------------------------------------------------------------------------
-   WHAT: Monospace typography for centered ASCII art rendering
-   WHY:  Preserve fixed-width formatting for ASCII art integrity
-   HOW:  Courier New monospace with white-space: pre; Kokiri accent color
-   ============================================================================= */
 .ascii-logo {
   font-family: "Courier New", monospace;
   font-size: 12px;
@@ -185,56 +218,13 @@ code {
   color: var(--logo-color);
   text-align: center;
   margin: 1rem 0;
-}
-
-/* =============================================================================
-   THEME TOGGLE BUTTON
-   -------------------------------------------------------------------------
-   WHAT: Fixed circular button for light/dark mode switching (top-right)
-   WHY:  Quick-access theme switcher without disrupting layout flow
-   HOW:  position: absolute; border matches accent; hover inverts colors
-   NOTE: Button styling mirrors Kokiri design language
-   ============================================================================= */
-#theme-toggle {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.4rem 0.6rem;
-  border: 2px solid var(--accent);
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.2rem;
-  background: var(--card-bg);
-  color: var(--accent);
-  transition: background 0.5s ease, transform 0.5s ease, color 0.5s ease;
-}
-
-#theme-toggle:hover {
-  background: var(--accent);
-  color: var(--bg-color);
-  transform: scale(1.1);
-}
-
-/* =============================================================================
-   FOOTER
-   -------------------------------------------------------------------------
-   WHAT: Bottom page section with background, padding, and metadata text
-   WHY:  Separate visual and semantic footer from main content
-   HOW:  Footer element uses header-bg colors; small centered text
-   ============================================================================= */
-footer {
-  background: var(--footer-bg);
-  color: var(--footer-text);
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  margin-top: 2rem;
+  display: block;
 }
 
 /* =============================================================================
    SEMANTIC COLOR CLASSES
    -------------------------------------------------------------------------
-   WHAT: Utility classes for syntax-highlighting code and content semantics
+   WHAT: Utility classes for syntax-highlighting and content semantics
    WHY:  Reusable styling aligned with Kokiri code highlighting palette
    HOW:  Apply color variables to .comment, .string, .keyword, etc.
    ============================================================================= */
@@ -257,4 +247,124 @@ footer {
 
 .special {
   color: var(--special-color);
+}
+
+/* =============================================================================
+   IMAGE CONTAINERS
+   -------------------------------------------------------------------------
+   WHAT: Styling for preview containers and images within project cards
+   WHY:  Flexible image layout with consistent borders and spacing
+   HOW:  Flex layout for preview; images scale responsively
+   ============================================================================= */
+.preview {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.preview img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+}
+
+/* Responsive images in project cards (not within grid) */
+.project-card > img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =============================================================================
+   MEDIA GALLERY & GRID LAYOUT
+   -------------------------------------------------------------------------
+   WHAT: Responsive grid for project screenshots and image galleries
+   WHY:  Display project media (screenshots, demos) in organized layouts
+   HOW:  CSS Grid with auto columns; responsive images with borders
+   ============================================================================= */
+.media-gallery {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.media-gallery h4,
+.video-container h4 {
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  margin-top: 10px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* =============================================================================
+   VIDEO CONTAINER
+   -------------------------------------------------------------------------
+   WHAT: Responsive video player styling with border and spacing
+   WHY:  Consistent video presentation matching image gallery design
+   HOW:  width: 100%, border styling, rounded corners, margin offset
+   ============================================================================= */
+.video-container {
+  margin-top: 1.5rem;
+}
+
+.video-container video {
+	width: 100%;
+	height: auto;
+	max-width: 100%;
+	border: 1px solid var(--accent);
+	border-radius: 8px;
+	margin-top: 10px;
+}
+
+/* Responsive videos in project cards (not within video-container) */
+.project-card > video {
+	width: 100%;
+	max-width: 600px;
+	height: auto;
+	display: block;
+	border-radius: 8px;
+	margin: 0 auto;
+}
+
+/* =============================================================================
+   FOOTER
+   -------------------------------------------------------------------------
+   WHAT: Bottom page section with background, padding, and metadata text
+   WHY:  Separate visual and semantic footer from main content
+   HOW:  Footer element uses footer-bg colors; small centered text
+   ============================================================================= */
+footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: 2rem;
 }
