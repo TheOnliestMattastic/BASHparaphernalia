@@ -148,10 +148,16 @@ h2 {
   gap: 0.25rem;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .buttons.card {
   justify-content: left;
+}
+
+.buttons a {
+  display: flex;
+  align-items: center;
 }
 
 /* =============================================================================
